@@ -3,6 +3,7 @@ import HomePage from './pages/HomePage'
 import PostPage from './pages/PostPage'
 import './App.css'
 import CreatePage from './pages/CreatePage'
+import PostDetails from './pages/PostDetails'
 
 function App() {
  
@@ -13,6 +14,7 @@ function App() {
       <Route path="/" element={<HomePage />}></Route>
       <Route path="/posts" element={<PostPage />}></Route>
       <Route path="/create" element={<CreatePage/>}></Route>
+      <Route path="/posts/:id" element={<PostDetails/>}></Route>
      </Routes>
     </>
   )
