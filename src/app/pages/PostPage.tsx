@@ -1,12 +1,12 @@
 import Header from "../components/header/Header"
-import PostCard from "../components/PostCard";
+import PostGallery from "../components/PostGallery"
 
 function PostPage() {
 
   return (
     <div>
     <Header />
-    <PostCard />
+    <PostGallery />
   </div>
   )
 }

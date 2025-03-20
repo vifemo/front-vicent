@@ -2,33 +2,20 @@ import { useParams } from "react-router-dom";
 import Header from "../components/header/Header"
 import {API_URL} from "../services/postService";
 import { useEffect, useState } from "react";
+import "../../styles/postdetails.css";
+import { Post } from "../types/types";
+import useFetchPost from "../hooks/useFetchPost";
 
 
 function PostDetails() {
 
-const {id} = useParams(); 
-const [post, setPost]= useState();
+  const post = useFetchPost();
 
-const fetchPost = async (id) => {
-    try {
-      const response = await fetch(`${API_URL}/${id}`);
-      const data = await response.json();
-      setPost(data);
-    } catch (error) {
-      console.error("Error fetching post:", error);
-    }
-  };
-
-
-useEffect(()=>{
-    fetchPost(id);
-},[id])
-
-const printDetails = (post) => {
+const printDetails = (post:Post | null) => {
     return post ? (
-        <section>
-          <h3>{post.title}</h3>
-          <p>{post.content}</p>
+        <section className="post-details">
+          <h3 className="post-title">{post.title}</h3>
+          <p className="post-content">{post.content}</p>
         </section>
       ) : (
         <h2>Loading...</h2>

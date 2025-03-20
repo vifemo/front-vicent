@@ -4,6 +4,7 @@ import PostPage from './pages/PostPage'
 import './App.css'
 import CreatePage from './pages/CreatePage'
 import PostDetails from './pages/PostDetails'
+import EditPage from './pages/EditPage'
 
 function App() {
  
@@ -15,6 +16,7 @@ function App() {
       <Route path="/posts" element={<PostPage />}></Route>
       <Route path="/create" element={<CreatePage/>}></Route>
       <Route path="/posts/:id" element={<PostDetails/>}></Route>
+      <Route path="/edit/:id" element={<EditPage/>}></Route>
      </Routes>
     </>
   )

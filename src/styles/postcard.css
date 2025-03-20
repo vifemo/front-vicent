@@ -9,5 +9,10 @@
     width: auto;
     border: 1px solid black; 
     margin: 5px;
-    background-color: lightblue  
+    background-color: white;
+    padding: 15px;
+}
+
+.post-link{
+    text-decoration: none;
 }

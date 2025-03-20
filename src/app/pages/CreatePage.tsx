@@ -5,6 +5,7 @@ import { Post } from "../types/types";
 import { createPost } from "../services/postService";
 
 
+
 function CreatePage() {
   const [newPost, setNewPost] = useState<Post | null>(null);
   //const [error, setError] = useState<string | null>(null);
@@ -37,7 +38,10 @@ function CreatePage() {
     <div>
        <Header />
       <h1>Create a new Post</h1>
-      <PostForm onSubmit={handleCreateSubmit} />
+      <PostForm 
+        onSubmit={handleCreateSubmit}
+        buttonText="Create"  
+        />
       
       {newPost && (
         <div>
