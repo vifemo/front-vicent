@@ -9,6 +9,7 @@ interface PostFormProps {
   buttonText: string; 
 }
 
+//De momento creamos con id=0
 function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
   const [post, setPost] = useState<Post>({
     id: initialPost?.id || 0,

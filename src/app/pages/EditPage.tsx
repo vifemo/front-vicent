@@ -1,18 +1,23 @@
-import { useParams } from "react-router-dom"
 import PostForm from "../components/PostForm";
-import { API_URL, updatePost } from "../services/postService";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Post } from "../types/types";
 import Header from "../components/header/Header";
 import useFetchPost from "../hooks/useFetchPost";
+import { updatePost } from "../services/postService";
 
 function EditPage() {
    const post = useFetchPost();
-
-    //implementar update aquí dentro 
-    const handleUpdateSubmit = (updatedPost : Post) => {
-        alert("post updated");
-    };
+   const [error, setError] = useState<string | null>(null);
+ 
+    const handleUpdateSubmit = async (post : Post) => {
+     try {
+           const updatedPost = await updatePost(post.id, post);
+           console.log("Updated post:", updatedPost);
+           setError(null);
+         } catch (error) {
+           setError('Error creating post. Please try again.');
+         }
+       };
 
 
     return (
@@ -23,6 +28,7 @@ function EditPage() {
         onSubmit={handleUpdateSubmit} 
         buttonText="Edit"
       />
+       {error && <p style={{ color: 'red' }}>{error}</p>}
       </>
     )
 }

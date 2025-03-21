@@ -1,7 +1,8 @@
 import axios from "axios";
 import { Post } from "../types/types";
 
-export const API_URL = "https://9b91b392-9e66-4554-a23c-8c2b4074aa70.mock.pstmn.io/posts"
+//export const API_URL = "https://9b91b392-9e66-4554-a23c-8c2b4074aa70.mock.pstmn.io/posts"
+export const API_URL = "https://poststest.free.beeceptor.com/posts"
 
 export const getPosts = async (): Promise<Post[]> => {
   try {
@@ -55,3 +56,5 @@ const handleAxiosError = (error: any) => {
   }
   console.error('Error config:', error.config);
 };
+
+

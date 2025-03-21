@@ -38,7 +38,7 @@ function PostGallery() {
 
    const printPosts = posts.map((post) =>{
     return (
-        <div className="post-card">
+        <div key={post.id} className="post-card">
         <PostCard post={{
             id: post.id,
             title: post.title,
