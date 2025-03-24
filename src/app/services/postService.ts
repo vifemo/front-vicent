@@ -2,7 +2,9 @@ import axios from "axios";
 import { Post } from "../types/types";
 
 //export const API_URL = "https://9b91b392-9e66-4554-a23c-8c2b4074aa70.mock.pstmn.io/posts"
-export const API_URL = "https://poststest.free.beeceptor.com/posts"
+//export const API_URL = "https://poststest.free.beeceptor.com/posts"
+export const API_URL = "https://jsonplaceholder.typicode.com/posts/"
+
 
 export const getPosts = async (): Promise<Post[]> => {
   try {
@@ -44,6 +46,7 @@ export const deletePost = async (id: number): Promise<void> => {
   }
 };
 
+/** */
 const handleAxiosError = (error: any) => {
   if (error.response) {
     console.error('Error data:', error.response.data);

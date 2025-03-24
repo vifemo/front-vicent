@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import "../../styles/postdetails.css";
 import { Post } from "../types/types";
 import useFetchPost from "../hooks/useFetchPost";
+import Subheader from "../components/subheader/Subheader";
 
 
 function PostDetails() {
@@ -15,7 +16,7 @@ const printDetails = (post:Post | null) => {
     return post ? (
         <section className="post-details">
           <h3 className="post-title">{post.title}</h3>
-          <p className="post-content">{post.content}</p>
+          <p className="post-body">{post.body}</p>
         </section>
       ) : (
         <h2>Loading...</h2>
@@ -25,6 +26,7 @@ const printDetails = (post:Post | null) => {
   return (
     <>
       <Header />
+      <Subheader />
      <div>{printDetails(post)}</div>
     </>
   );

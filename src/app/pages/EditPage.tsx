@@ -4,6 +4,7 @@ import { Post } from "../types/types";
 import Header from "../components/header/Header";
 import useFetchPost from "../hooks/useFetchPost";
 import { updatePost } from "../services/postService";
+import Subheader from "../components/subheader/Subheader";
 
 function EditPage() {
    const post = useFetchPost();
@@ -23,13 +24,14 @@ function EditPage() {
     return (
         <>
         <Header />
+        <Subheader/>
         <PostForm
         initialPost={post} 
         onSubmit={handleUpdateSubmit} 
         buttonText="Edit"
       />
        {error && <p style={{ color: 'red' }}>{error}</p>}
-      </>
+       </>
     )
 }
 

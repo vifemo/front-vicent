@@ -3,6 +3,7 @@ import Header from "../components/header/Header";
 import PostForm from "../components/PostForm";
 import { Post } from "../types/types";
 import { createPost } from "../services/postService";
+import Subheader from "../components/subheader/Subheader";
 
 
 function CreatePage() {
@@ -23,6 +24,7 @@ function CreatePage() {
   return (
     <div>
        <Header />
+       <Subheader />
       <h1>Create a new Post</h1>
       <PostForm 
         onSubmit={handleCreateSubmit}
@@ -32,7 +34,7 @@ function CreatePage() {
         <div>
           <h2>{newPost.id}</h2>
           <h2>{newPost.title}</h2>
-          <h2>{newPost.content}</h2>
+          <h2>{newPost.body}</h2>
         </div>
       )
 

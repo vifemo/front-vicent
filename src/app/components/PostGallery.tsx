@@ -42,7 +42,7 @@ function PostGallery() {
         <PostCard post={{
             id: post.id,
             title: post.title,
-            content: post.content
+            body: post.body
         }} />
         <Button text="Delete" onClick={() => handleDelete(post.id)} />
         <Button text= "Edit" onClick={() => goToEdit(post.id)}/>

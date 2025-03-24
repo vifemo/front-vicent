@@ -10,7 +10,7 @@ const PostCard: React.FC<PostCardProps> = ({post}) => {
   return (
     <div key= {post.id} >
         <h2><Link to={`/posts/${post.id}`} className="post-link">Title: {post.title}</Link></h2>
-        <h4>Content: {post.content}</h4>
+        <h4>Content: {post.body}</h4>
         
     </div>
   )

@@ -14,7 +14,7 @@ function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
   const [post, setPost] = useState<Post>({
     id: initialPost?.id || 0,
     title: initialPost?.title || "",
-    content: initialPost?.content || ""
+    body: initialPost?.body || ""
   });
 
   useEffect(() => {
@@ -25,6 +25,14 @@ function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Mejorar validación 
+    if (post.title.trim() === "") {
+      post.title = "Title it's mandatory";
+    }
+    if (post.body.trim() === ""){
+      post.body = "Content must be field";
+    }
     console.log(post);
     onSubmit(post);
   };
@@ -34,7 +42,7 @@ function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
   };
 
   const handleContent = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setPost({ ...post, content: e.target.value });
+    setPost({ ...post, body: e.target.value });
   };
 
   return (
@@ -43,7 +51,7 @@ function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
         <label htmlFor="title">Title</label>
         <input type="text" id="title" value={post.title} placeholder="Set Title" onChange={handleTitle} />
         <label htmlFor="content">Content</label>
-        <textarea id="content" value={post.content} placeholder="Set Content" onChange={handleContent}></textarea>
+        <textarea id="content" value={post.body} placeholder="Set Content" onChange={handleContent}></textarea>
         <Button text={buttonText} onClick={handleSubmit} />
       </form>
     </div>
