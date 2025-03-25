@@ -1,8 +1,6 @@
-import Breadcrumbs from "../Breadcrumbs"
-import SearchPost from "../searchpost/SearchPost"
-import "./subheader.css"
-
-
+import Breadcrumbs from '../Breadcrumbs'
+import SearchPost from '../searchpost/SearchPost'
+import './subheader.css'
 
 function Subheader() {
   return (

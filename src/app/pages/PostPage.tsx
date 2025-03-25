@@ -1,15 +1,14 @@
-import Header from "../components/header/Header"
-import PostGallery from "../components/PostGallery"
-import Subheader from "../components/subheader/Subheader"
+import Header from '../components/header/Header'
+import PostGallery from '../components/PostGallery'
+import Subheader from '../components/subheader/Subheader'
 
 function PostPage() {
-
   return (
     <div>
-    <Header />
-    <Subheader />
-    <PostGallery />
-  </div>
+      <Header />
+      <Subheader />
+      <PostGallery />
+    </div>
   )
 }
 
