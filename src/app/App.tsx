@@ -7,33 +7,17 @@ import PostDetails from './pages/PostDetails'
 import EditPage from './pages/EditPage'
 
 function App() {
- 
   return (
     <>
       <Routes>
-        <Route 
-          path="/" 
-          element={<HomePage />}
-        />
-        <Route 
-          path="/posts" 
-          element={<PostPage />}
-        />
-        <Route 
-          path="/create" 
-          element={<CreatePage/>}
-        />
-        <Route 
-          path="/posts/:id" 
-          element={<PostDetails/>}
-        />
-        <Route 
-          path="/edit/:id" 
-          element={<EditPage/>}
-        />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/posts" element={<PostPage />} />
+        <Route path="/create" element={<CreatePage />} />
+        <Route path="/posts/:id" element={<PostDetails />} />
+        <Route path="/edit/:id" element={<EditPage />} />
       </Routes>
     </>
-  );
-};
+  )
+}
 
 export default App
