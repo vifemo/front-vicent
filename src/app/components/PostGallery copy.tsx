@@ -1,24 +1,31 @@
 import { useEffect, useState } from 'react'
 import { Post } from '../types/types'
 import '../../styles/postcard.css'
-
+import { getPosts, deletePost } from '../services/postService'
 import Button from './Button'
 import PostCard from './PostCard'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchPosts, deletePost } from '../actions/postActions'
 
 function PostGallery() {
-  const dispatch = useDispatch()
-  const posts = useSelector((state) => state.posts)
+  const [posts, setPosts] = useState<Post[]>([])
   const navigate = useNavigate()
 
   useEffect(() => {
-    dispatch(fetchPosts())
-  }, [dispatch])
+    const fetchPosts = async () => {
+      const postsData = await getPosts()
+      setPosts(postsData)
+    }
 
-  const handleDelete = (id: number) => {
-    dispatch(deletePost(id))
+    fetchPosts()
+  }, [])
+
+  const handleDelete = async (id: number) => {
+    try {
+      await deletePost(id)
+      setPosts(posts.filter((post) => post.id !== id))
+    } catch (error) {
+      console.error('Error at deleting:', error)
+    }
   }
 
   const goToEdit = (id: number) => {

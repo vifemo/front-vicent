@@ -1,4 +1,9 @@
-import { FETCH_POSTS } from '../actions/postActions'
+import {
+  ADD_POSTS,
+  DELETE_POST,
+  EDIT_POST,
+  FETCH_POSTS,
+} from '../actions/postActions'
 import { Post } from '../types/types'
 
 interface PostsState {
@@ -11,13 +16,25 @@ const initialState: PostsState = {
 
 function postReducer(
   state = initialState,
-  action: { type: string; payload: Post }
-) {
-  if (action.type === FETCH_POSTS) {
-    return { posts: action.payload }
-  }
+  action: { type: string; payload: any }
+): PostsState {
+  switch (action.type) {
+    case FETCH_POSTS:
+      return { posts: action.payload }
+    case ADD_POSTS:
+      return { posts: [...state.posts, action.payload] }
+    case EDIT_POST:
+      return {
+        posts: state.posts.map((post) =>
+          post.id === action.payload.id ? action.payload : post
+        ),
+      }
+    case DELETE_POST:
+      return { posts: state.posts.filter((post) => post.id !== action.payload) }
 
-  return state
+    default:
+      return state
+  }
 }
 
 export default postReducer
