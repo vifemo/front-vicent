@@ -1,0 +1,44 @@
+.post-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  gap: 10px;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+.post-card {
+  width: 200px;
+  height: auto;
+  box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.498);
+  border-radius: 3%;
+  margin: 5px;
+  background-color: white;
+  padding: 15px;
+  opacity: 85%;
+}
+
+.post-card:hover {
+  opacity: 100%;
+}
+
+.post-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 0;
+  opacity: 0;
+}
+
+.post-card:hover .button-container {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.post-card:hover {
+  transform: scale(1.05);
+}

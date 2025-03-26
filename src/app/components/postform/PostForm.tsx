@@ -1,7 +1,7 @@
-import Button from './Button'
-import '../../styles/postform.css'
+import Button from '../button/Button'
+import './postform.css'
 import { useState, useEffect } from 'react'
-import { Post } from '../types/types'
+import { Post } from '../../types/types'
 
 interface PostFormProps {
   initialPost?: Post | null

@@ -1,3 +1,10 @@
-body{
-    background-color: rgba(7, 61, 236, 0.932);
+body {
+  background: rgb(1, 0, 28);
+  background: linear-gradient(
+    0deg,
+    rgba(1, 0, 28, 1) 0%,
+    rgba(28, 13, 94, 1) 10%,
+    rgba(2, 67, 142, 1) 56%
+  );
+  min-height: 100vh;
 }

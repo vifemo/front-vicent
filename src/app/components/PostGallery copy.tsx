@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Post } from '../types/types'
 import '../../styles/postcard.css'
 import { getPosts, deletePost } from '../services/postService'
-import Button from './Button'
+import Button from './button/Button'
 import PostCard from './PostCard'
 import { useNavigate } from 'react-router-dom'
 

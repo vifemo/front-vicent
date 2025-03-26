@@ -1,6 +1,6 @@
-import { Post } from '../types/types'
+import { Post } from '../../types/types'
 import { Link } from 'react-router-dom'
-import '../../styles/postcard.css'
+import './postcard.css'
 
 interface PostCardProps {
   post: Post
@@ -11,10 +11,10 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
     <div key={post.id}>
       <h2>
         <Link to={`/posts/${post.id}`} className="post-link">
-          Title: {post.title}
+          {post.title}
         </Link>
       </h2>
-      <h4>Content: {post.body}</h4>
+      <h4>{post.body}</h4>
     </div>
   )
 }

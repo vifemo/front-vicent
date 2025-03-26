@@ -1,24 +1,24 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Post } from '../types/types'
-import '../../styles/postcard.css'
-
-import Button from './Button'
-import PostCard from './PostCard'
+import './../components/postcard/postcard.css'
+import Button from './button/Button'
+import PostCard from './postcard/PostCard'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchPosts, deletePost } from '../actions/postActions'
+import { RootState } from '../store/store'
 
 function PostGallery() {
   const dispatch = useDispatch()
-  const posts = useSelector((state) => state.posts)
+  const posts = useSelector((state: RootState) => state.posts)
   const navigate = useNavigate()
 
   useEffect(() => {
-    dispatch(fetchPosts())
+    dispatch(fetchPosts() as any)
   }, [dispatch])
 
   const handleDelete = (id: number) => {
-    dispatch(deletePost(id))
+    dispatch(deletePost(id) as any)
   }
 
   const goToEdit = (id: number) => {
@@ -35,8 +35,10 @@ function PostGallery() {
             body: post.body,
           }}
         />
-        <Button text="Delete" onClick={() => handleDelete(post.id)} />
-        <Button text="Edit" onClick={() => goToEdit(post.id)} />
+        <div className="button-container">
+          <Button text="Delete" onClick={() => handleDelete(post.id)} />
+          <Button text="Edit" onClick={() => goToEdit(post.id)} />
+        </div>
       </div>
     )
   })

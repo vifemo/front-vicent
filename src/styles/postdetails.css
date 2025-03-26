@@ -1,14 +1,14 @@
-.post-details{
-    margin:20%;
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    padding: 50px;
+.post-details {
+  margin: 20%;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 50px;
 }
 
 .post-body {
-    text-align: justify;
+  text-align: justify;
 }

@@ -1,4 +1,4 @@
-import Breadcrumbs from '../Breadcrumbs'
+import Breadcrumbs from '../breadcrumbs/Breadcrumbs'
 import SearchPost from '../searchpost/SearchPost'
 import './subheader.css'
 

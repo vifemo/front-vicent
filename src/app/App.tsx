@@ -5,6 +5,8 @@ import './App.css'
 import CreatePage from './pages/CreatePage'
 import PostDetails from './pages/PostDetails'
 import EditPage from './pages/EditPage'
+import Header from './components/header/Header'
+import Subheader from './components/subheader/Subheader'
 
 function App() {
   return (

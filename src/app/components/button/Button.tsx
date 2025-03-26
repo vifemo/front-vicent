@@ -1,4 +1,5 @@
 import React from 'react'
+import './button.css'
 
 interface ButtonProps {
   text: string
@@ -8,7 +9,7 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({ text, onClick, disabled = false }) => {
   return (
-    <button onClick={onClick} disabled={disabled}>
+    <button className="form-button" onClick={onClick} disabled={disabled}>
       {text}
     </button>
   )

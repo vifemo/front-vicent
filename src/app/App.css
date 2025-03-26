@@ -1,0 +1,15 @@
+/*.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.subheader {
+  position: relative;
+  width: 100%;
+  top: 120px;
+  left: 0;
+  z-index: 999;
+}

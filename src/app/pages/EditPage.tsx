@@ -1,4 +1,4 @@
-import PostForm from '../components/PostForm'
+import PostForm from '../components/postform/PostForm'
 import { useState } from 'react'
 import { Post } from '../types/types'
 import Header from '../components/header/Header'
