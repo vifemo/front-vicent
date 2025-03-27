@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchPosts, deletePost } from '../actions/postActions'
 import { RootState } from '../store/store'
-import Pagination from './pagination/pagination'
+import Pagination from './pagination/Pagination'
 
 function PostGallery() {
   const dispatch = useDispatch()

@@ -63,7 +63,10 @@ function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
           placeholder="Set Content"
           onChange={handleContent}
         ></textarea>
-        <Button text={buttonText} onClick={handleSubmit} />
+        <Button
+          text={buttonText}
+          onClick={(e: React.FormEvent) => handleSubmit(e)}
+        />
       </form>
     </div>
   )

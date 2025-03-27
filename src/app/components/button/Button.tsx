@@ -3,7 +3,7 @@ import './button.css'
 
 interface ButtonProps {
   text: string
-  onClick: () => void
+  onClick: (e: React.FormEvent) => void
   disabled?: boolean
 }
 

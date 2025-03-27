@@ -7,6 +7,7 @@
   align-items: center;
   background-color: white;
   padding: 50px;
+  border-radius: 2%;
 }
 
 .post-body {
