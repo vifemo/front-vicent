@@ -21,7 +21,11 @@ const Pagination: React.FC<PaginationProps> = ({
       </button>
 
       {[...Array(totalPages)].map((_, i) => (
-        <button key={i} onClick={() => onPageChange(i + 1)}>
+        <button
+          key={i}
+          onClick={() => onPageChange(i + 1)}
+          className={currentPage === i + 1 ? 'active' : ''}
+        >
           {i + 1}
         </button>
       ))}
