@@ -2,7 +2,7 @@ import {
   ADD_POSTS,
   DELETE_POST,
   EDIT_POST,
-  FETCH_POSTS,
+  FETCH_ALL_POSTS,
 } from '../actions/postActions'
 import { Post } from '../types/types'
 
@@ -13,13 +13,13 @@ interface PostsState {
 const initialState: PostsState = {
   posts: [],
 }
-
+//separar reducers o any
 function postReducer(
   state = initialState,
-  action: { type: string; payload: any }
+  action: { type: string; payload: Post }
 ): PostsState {
   switch (action.type) {
-    case FETCH_POSTS:
+    case FETCH_ALL_POSTS:
       return { posts: action.payload }
     case ADD_POSTS:
       return { posts: [...state.posts, action.payload] }

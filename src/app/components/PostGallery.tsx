@@ -4,11 +4,24 @@ import Button from './button/Button'
 import PostCard from './postcard/PostCard'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchPosts, deletePost } from '../actions/postActions'
+import { deletePost, fetchAllPosts } from '../actions/postActions'
 import { RootState } from '../store/store'
 import Pagination from './pagination/Pagination'
+import { getPosts } from '../services/postService'
+import { Post } from '../types/types'
 
 function PostGallery() {
+  const [allPosts, setAllPosts] = useState<Post[]>([])
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const postsData = await getPosts()
+      setAllPosts(postsData)
+    }
+
+    fetchPosts()
+  }, [])
+
   const dispatch = useDispatch()
   const posts = useSelector((state: RootState) => state.posts)
 
@@ -18,11 +31,11 @@ function PostGallery() {
   const postsPerPage = 10
 
   useEffect(() => {
-    dispatch(fetchPosts() as any)
+    dispatch(fetchAllPosts())
   }, [dispatch])
 
   const handleDelete = (id: number) => {
-    dispatch(deletePost(id) as any)
+    dispatch(deletePost(id))
   }
 
   const goToEdit = (id: number) => {

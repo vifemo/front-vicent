@@ -1,7 +1,7 @@
-import { createStore, applyMiddleware } from 'redux'
-import { thunk } from 'redux-thunk'
+import { createStore } from 'redux'
+
 import postReducer from '../reducers/postReducer'
 
-const store = createStore(postReducer, applyMiddleware(thunk))
+const store = createStore(postReducer)
 export type RootState = ReturnType<typeof postReducer>
 export default store
