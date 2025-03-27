@@ -57,12 +57,14 @@ function PostGallery() {
     <div>
       {printPosts.length ? (
         <>
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={setCurrentPage}
-          />
           <section className="post-container">{printPosts}</section>
+          <div className="pagination-container">
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={setCurrentPage}
+            />
+          </div>
         </>
       ) : (
         <h2>Loading...</h2>
