@@ -1,0 +1,25 @@
+.pagination {
+  display: flex;
+  gap: 5px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 15%;
+}
+
+.pagination button.active {
+  background-color: #0c3f75;
+  color: white;
+}
+
+.pagination button:hover {
+  transform: translateY(-1px);
+}
+.pagination button:active {
+  transform: scale(0.95);
+  box-shadow: 0px 3px 10px rgba(255, 255, 255, 0.5);
+}

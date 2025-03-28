@@ -1,7 +1,7 @@
-import Button from './Button'
-import '../../styles/postform.css'
+import Button from '../button/Button'
+import './postform.css'
 import { useState, useEffect } from 'react'
-import { Post } from '../types/types'
+import { Post } from '../../types/types'
 
 interface PostFormProps {
   initialPost?: Post | null
@@ -63,7 +63,10 @@ function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
           placeholder="Set Content"
           onChange={handleContent}
         ></textarea>
-        <Button text={buttonText} onClick={handleSubmit} />
+        <Button
+          text={buttonText}
+          onClick={(e: React.FormEvent) => handleSubmit(e)}
+        />
       </form>
     </div>
   )

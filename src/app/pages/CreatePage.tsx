@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Header from '../components/header/Header'
-import PostForm from '../components/PostForm'
+import PostForm from '../components/postform/PostForm'
 import { Post } from '../types/types'
 import { createPost } from '../services/postService'
 import Subheader from '../components/subheader/Subheader'

@@ -1,0 +1,17 @@
+.breadcrumb {
+  background-color: aquamarine;
+  max-height: 20px;
+  max-width: 30%;
+}
+
+.breadcrumb-mid {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb-item {
+  text-decoration: none;
+}

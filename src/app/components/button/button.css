@@ -1,0 +1,22 @@
+.form-button {
+  padding: 5px 15px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  background: #1e0575;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.272);
+}
+
+.form-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0px 8px 20px rgb(255, 255, 255);
+}
+
+.form-button:active {
+  transform: scale(0.95);
+  box-shadow: 0px 3px 10px rgba(65, 97, 255, 0.5);
+}
