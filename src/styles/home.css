@@ -1,0 +1,29 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+  height: 100vh; /* Hace que ocupe el 100% de la altura de la pantalla */
+}
+
+.home-container > *:first-child {
+  width: 20%; /* El primer hijo (sidebar) ocupará el 20% */
+  background-color: #f4f4f4; /* Color de fondo para el sidebar */
+  padding: 20px; /* Un poco de relleno dentro del sidebar */
+}
+
+.home-body-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%; /* Ocupa el 80% restante del espacio */
+  padding: 20px; /* Relleno para el contenido */
+  overflow: auto; /* Permite el scroll si el contenido se excede */
+}
