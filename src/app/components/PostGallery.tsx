@@ -9,7 +9,11 @@ import { RootState } from '../store/store'
 import Pagination from './pagination/Pagination'
 import { getPosts } from '../services/postService'
 
-function PostGallery() {
+interface postGalleryProps {
+  numberOfItems?: number
+}
+
+function PostGallery({ numberOfItems = 10 }: postGalleryProps) {
   const dispatch = useDispatch()
   const posts = useSelector((state: RootState) => state.posts)
 
@@ -26,7 +30,7 @@ function PostGallery() {
   const navigate = useNavigate()
 
   const [currentPage, setCurrentPage] = useState(1)
-  const postsPerPage = 10
+  const postsPerPage = numberOfItems
 
   const handleDelete = (id: number) => {
     dispatch(deletePost(id))

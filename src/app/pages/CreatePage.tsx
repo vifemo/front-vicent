@@ -4,15 +4,17 @@ import PostForm from '../components/postform/PostForm'
 import { Post } from '../types/types'
 import { createPost } from '../services/postService'
 import Subheader from '../components/subheader/Subheader'
+import { useDispatch } from 'react-redux'
+import { addPost } from '../actions/postActions'
 
 function CreatePage() {
   const [newPost, setNewPost] = useState<Post | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const dispatch = useDispatch()
 
-  const handleCreateSubmit = async (post: Post) => {
+  const handleCreateSubmit = (post: Post) => {
     try {
-      const createdPost = await createPost(post)
-      setNewPost(createdPost)
+      dispatch(addPost(post))
       setError(null)
     } catch (error) {
       setError('Error creating post. Please try again.')
