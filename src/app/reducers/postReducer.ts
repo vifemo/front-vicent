@@ -16,7 +16,7 @@ const initialState: PostsState = {
 //separar reducers o any
 function postReducer(
   state = initialState,
-  action: { type: string; payload: Post }
+  action: { type: string; payload: any }
 ): PostsState {
   switch (action.type) {
     case FETCH_ALL_POSTS:
