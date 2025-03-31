@@ -12,7 +12,7 @@ interface PostGalleryProps {
   numberOfItems?: number
 }
 
-function PostGallery({ numberOfItems = 10 }: PostGalleryProps) {
+function PostGallery({ numberOfItems = 12 }: PostGalleryProps) {
   const dispatch = useDispatch()
   const posts = useSelector((state: RootState) => state.posts)
 

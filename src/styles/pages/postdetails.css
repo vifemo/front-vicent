@@ -1,3 +1,9 @@
+.post-details-container {
+  max-width: 90%;
+  margin-top: 10%;
+  margin-left: 15%;
+}
+
 .post-details {
   margin: 20%;
   margin-top: 50px;
@@ -10,6 +16,17 @@
   border-radius: 2%;
 }
 
-.post-body {
+.post-details__title {
+}
+
+.post-details__body {
   text-align: justify;
+  font-size: large;
+}
+
+.postdetails__button-container {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }

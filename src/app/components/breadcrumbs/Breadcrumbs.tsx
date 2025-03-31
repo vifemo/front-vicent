@@ -20,7 +20,7 @@ function Breadcrumbs() {
                 path
               ) : (
                 <Link to={isEditPage ? '/posts' : routeTo}>
-                  {isEditPage ? 'Posts' : path}
+                  {isEditPage ? 'posts' : path}
                 </Link>
               )}
             </li>

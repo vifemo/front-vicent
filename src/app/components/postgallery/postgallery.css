@@ -1,62 +1,11 @@
 .postgallery {
   display: flex;
   flex-wrap: wrap;
-  max-width: 85%; /* Ajusta el ancho para no superponerse con el sidebar */
+  max-width: 90%; /* Ajusta el ancho para no superponerse con el sidebar */
   gap: 10px;
   justify-content: space-around;
-  margin-top: 50px;
+  margin-top: 5%;
   margin-left: 15%; /* Desplaza los posts para que no se superpongan con el sidebar */
-}
-
-.postgallery__item {
-  width: 200px;
-  height: auto;
-  box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.498);
-  border-radius: 3%;
-  margin: 5px;
-  background-color: #f0f0f0; /* Fondo para el cuerpo y el botón */
-  padding: 15px;
-  opacity: 85%;
-  transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
-}
-
-.postgallery__item:hover {
-  opacity: 100%;
-  transform: scale(1.05);
-}
-
-.postgallery__title {
-  background-color: white; /* Fondo blanco para el título */
-  padding: 10px;
-  border-radius: 3%;
-  margin-bottom: 10px;
-}
-
-.postgallery__link {
-  text-decoration: none;
-  cursor: pointer;
-  color: inherit;
-}
-
-.postgallery__body {
-  padding: 10px;
-  background-color: #f0f0f0; /* Fondo para el cuerpo */
-  border-radius: 3%;
-}
-
-.postgallery__button-container {
-  display: flex;
-  justify-content: space-around;
-  padding-top: 10px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.postgallery__item:hover .postgallery__button-container {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .pagination-container {

@@ -5,6 +5,7 @@ import { Post } from '../types/types'
 import Subheader from '../components/subheader/Subheader'
 import { useDispatch } from 'react-redux'
 import { addPost } from '../actions/postActions'
+import '../../styles/pages/formpage.css'
 
 function CreatePage() {
   const [error, setError] = useState<string | null>(null)
@@ -24,9 +25,11 @@ function CreatePage() {
     <div>
       <Header />
       <Subheader />
-      <h1>Create a new Post</h1>
-      <PostForm onSubmit={handleCreateSubmit} buttonText="Create" />
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <div className="form-page">
+        <h1>Create a new Post</h1>
+        <PostForm onSubmit={handleCreateSubmit} buttonText="Create" />
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+      </div>
     </div>
   )
 }
