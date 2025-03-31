@@ -6,6 +6,7 @@ import useFetchPost from '../hooks/useFetchPost'
 import Subheader from '../components/subheader/Subheader'
 import { editPost } from '../actions/postActions'
 import { useDispatch } from 'react-redux'
+import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs'
 
 function EditPage() {
   const dispatch = useDispatch()
@@ -25,6 +26,7 @@ function EditPage() {
     <>
       <Header />
       <Subheader />
+      <Breadcrumbs />
       <PostForm
         initialPost={post}
         onSubmit={handleUpdateSubmit}

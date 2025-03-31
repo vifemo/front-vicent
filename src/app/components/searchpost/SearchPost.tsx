@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../store/store'
 import { fetchAllPosts } from '../../actions/postActions'
+import './searchpost.css'
 
 function SearchPost() {
   const [query, setQuery] = useState('')
@@ -36,12 +37,15 @@ function SearchPost() {
         placeholder="Search post by title"
         value={query}
         onChange={handleChange}
+        className="search-container__input"
       />
       {filtered.length > 0 && (
-        <ul>
+        <ul className="search-container__list">
           {filtered.map((post) => (
-            <li key={post.id}>
-              <Link to={`/posts/${post.id}`}>{post.title}</Link>
+            <li key={post.id} className="search-container__item">
+              <Link to={`/posts/${post.id}`} className="search-container__link">
+                {post.title}
+              </Link>
             </li>
           ))}
         </ul>

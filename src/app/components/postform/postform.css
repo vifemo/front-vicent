@@ -1,18 +1,48 @@
+.post-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
 .form-container {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
 }
 
-.form-container * {
-  margin: 5px;
+.form-container__label {
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
-.form-container textarea {
-  min-height: 100%;
-  text-align: justify;
-  font-family:
-    'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 15px;
+.form-container__input,
+.form-container__textarea {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  transition: border-color 0.3s ease;
+}
+
+.form-container__input:focus,
+.form-container__textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.form-container__textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-container__button {
+  align-self: center;
 }

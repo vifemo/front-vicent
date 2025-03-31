@@ -12,13 +12,16 @@ function Breadcrumbs() {
           <Link to="/">Home</Link>
         </li>
         {paths.map((path, index) => {
+          const isEditPage = path === 'edit'
           const routeTo = `/${paths.slice(0, index + 1).join('/')}`
           return (
             <li key={index} className="breadcrumb-item">
               {index === paths.length - 1 ? (
                 path
               ) : (
-                <Link to={routeTo}>{path}</Link>
+                <Link to={isEditPage ? '/posts' : routeTo}>
+                  {isEditPage ? 'Posts' : path}
+                </Link>
               )}
             </li>
           )

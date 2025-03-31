@@ -1,8 +1,9 @@
 import Header from '../components/header/Header'
-import '../../styles/postdetails.css'
+import '../../styles/pages/postdetails.css'
 import { Post } from '../types/types'
 import useFetchPost from '../hooks/useFetchPost'
 import Subheader from '../components/subheader/Subheader'
+import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs'
 
 function PostDetails() {
   const post = useFetchPost()
@@ -22,6 +23,7 @@ function PostDetails() {
     <>
       <Header />
       <Subheader />
+      <Breadcrumbs />
       <div>{printDetails(post)}</div>
     </>
   )

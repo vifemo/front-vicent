@@ -10,7 +10,6 @@ interface PostFormProps {
   buttonText: string
 }
 
-//De momento creamos con id=0
 function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
   const newPostId = useFakeId()
   const [post, setPost] = useState<Post>({
@@ -49,26 +48,34 @@ function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
 
   return (
     <div className="post-container">
-      <form className="form-container">
-        <label htmlFor="title">Title</label>
+      <form className="form-container" onSubmit={handleSubmit}>
+        <label htmlFor="title" className="form-container__label">
+          Title
+        </label>
         <input
           type="text"
           id="title"
           value={post.title}
           placeholder="Set Title"
           onChange={handleTitle}
+          className="form-container__input"
         />
-        <label htmlFor="content">Content</label>
+        <label htmlFor="content" className="form-container__label">
+          Content
+        </label>
         <textarea
           id="content"
           value={post.body}
           placeholder="Set Content"
           onChange={handleContent}
+          className="form-container__textarea"
         ></textarea>
-        <Button
-          text={buttonText}
-          onClick={(e: React.FormEvent) => handleSubmit(e)}
-        />
+        <div className="form-container__button">
+          <Button
+            text={buttonText}
+            onClick={(e: React.FormEvent) => handleSubmit(e)}
+          />
+        </div>
       </form>
     </div>
   )

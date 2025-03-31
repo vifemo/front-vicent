@@ -15,6 +15,7 @@ const Pagination: React.FC<PaginationProps> = ({
   return (
     <div className="pagination">
       <button
+        className="pagination__button pagination__button--prev"
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
@@ -25,14 +26,14 @@ const Pagination: React.FC<PaginationProps> = ({
         <button
           key={i}
           onClick={() => onPageChange(i + 1)}
-          className={currentPage === i + 1 ? 'active' : ''}
+          className={`pagination__button ${currentPage === i + 1 ? 'pagination__button--active' : ''}`}
         >
           {i + 1}
         </button>
       ))}
 
-      <button></button>
       <button
+        className="pagination__button pagination__button--next"
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
