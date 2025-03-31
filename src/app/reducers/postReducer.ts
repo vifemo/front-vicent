@@ -13,7 +13,7 @@ interface PostsState {
 const initialState: PostsState = {
   posts: [],
 }
-//separar reducers o any
+
 function postReducer(
   state = initialState,
   action: { type: string; payload: any }
@@ -24,9 +24,10 @@ function postReducer(
     case ADD_POSTS:
       return { posts: [...state.posts, action.payload] }
     case EDIT_POST:
+      console.log('action_payload', action.payload)
       return {
         posts: state.posts.map((post) =>
-          post.id === action.payload.id ? action.payload : post
+          post.id === action.payload.id ? action.payload.updatedPost : post
         ),
       }
     case DELETE_POST:

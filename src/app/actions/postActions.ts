@@ -9,7 +9,7 @@ export const fetchAllPosts = (posts: Post[]) => {
   return { type: FETCH_ALL_POSTS, payload: posts }
 }
 
-export const addPos = (post: Post) => {
+export const addPost = (post: Post) => {
   return { type: ADD_POSTS, payload: post }
 }
 export const editPost = (id: number, updatedPost: Post) => {

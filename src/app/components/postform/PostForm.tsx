@@ -2,6 +2,7 @@ import Button from '../button/Button'
 import './postform.css'
 import { useState, useEffect } from 'react'
 import { Post } from '../../types/types'
+import { useFakeId } from '../../helper/idHelper'
 
 interface PostFormProps {
   initialPost?: Post | null
@@ -11,8 +12,9 @@ interface PostFormProps {
 
 //De momento creamos con id=0
 function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
+  const newPostId = useFakeId()
   const [post, setPost] = useState<Post>({
-    id: initialPost?.id || 0,
+    id: initialPost?.id || newPostId,
     title: initialPost?.title || '',
     body: initialPost?.body || '',
   })
