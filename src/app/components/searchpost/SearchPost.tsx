@@ -1,19 +1,19 @@
 import { useState, useEffect } from 'react'
-import { getPosts } from '../../services/postService'
 import { Post } from '../../types/types'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../../store/store'
+import { fetchAllPosts } from '../../actions/postActions'
 
 function SearchPost() {
   const [query, setQuery] = useState('')
   const [filtered, setFiltered] = useState<Post[]>([])
-  const [posts, setPosts] = useState<Post[]>([])
+  const posts = useSelector((state: RootState) => state.posts)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      const data = await getPosts()
-      setPosts(data)
-    }
-    fetchPosts()
+    const fetchPosts = fetchAllPosts(posts)
+    dispatch(fetchPosts)
   }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
