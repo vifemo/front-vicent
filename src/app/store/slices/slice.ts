@@ -20,6 +20,7 @@ const postSlice = createSlice({
       return { posts: [...state.posts, action.payload] }
     },
     editPost(state, action) {
+      console.log('payload', action.payload)
       return {
         posts: state.posts.map((post) =>
           post.id === action.payload.id ? action.payload.updatedPost : post

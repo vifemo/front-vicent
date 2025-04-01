@@ -5,17 +5,23 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../store/store'
 import { fetchAllPosts } from '../../store/slices/slice'
 import './searchpost.css'
+import { getPosts } from '../../services/postService'
 
 function SearchPost() {
   const [query, setQuery] = useState('')
   const [filtered, setFiltered] = useState<Post[]>([])
-  const posts = useSelector((state: RootState) => state.posts)
+  const { posts } = useSelector((state: RootState) => state.posts_reducer)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const fetchPosts = fetchAllPosts(posts)
-    dispatch(fetchPosts)
-  }, [])
+    if (posts.length === 0) {
+      const fetchPosts = async () => {
+        const postsData = await getPosts()
+        dispatch(fetchAllPosts(postsData))
+      }
+      fetchPosts()
+    }
+  }, [dispatch, posts.length])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value

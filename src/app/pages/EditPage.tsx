@@ -17,7 +17,7 @@ function EditPage() {
 
   const handleUpdateSubmit = (post: Post) => {
     try {
-      dispatch(editPost(post.id, post))
+      dispatch(editPost({ id: post.id, updatedPost: post }))
       alert('Post updated')
       setError(null)
       return navigate(`/posts`)
