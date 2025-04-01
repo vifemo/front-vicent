@@ -17,6 +17,8 @@ function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
     title: initialPost?.title || '',
     body: initialPost?.body || '',
   })
+  const [titleError, setTitleError] = useState('')
+  const [bodyError, setBodyError] = useState('')
 
   useEffect(() => {
     if (initialPost) {
@@ -26,24 +28,36 @@ function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-
-    // Mejorar validación
-    if (post.title.trim() === '') {
-      post.title = "Title it's mandatory"
+    if (!post.title.trim()) {
+      setTitleError('Title is mandatory')
     }
-    if (post.body.trim() === '') {
-      post.body = 'Content must be field'
+    if (!post.body.trim()) {
+      setBodyError('Body must be filled')
     }
-    console.log(post)
-    onSubmit(post)
+    if (!titleError && !bodyError && post.title.trim() && post.body.trim()) {
+      console.log(post)
+      onSubmit(post)
+    }
   }
 
   const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPost({ ...post, title: e.target.value })
+    const newTitle = e.target.value
+    setPost({ ...post, title: newTitle })
+    if (!newTitle.trim()) {
+      setTitleError('Title is mandatory')
+    } else {
+      setTitleError('')
+    }
   }
 
   const handleContent = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setPost({ ...post, body: e.target.value })
+    const newBody = e.target.value
+    setPost({ ...post, body: newBody })
+    if (!newBody.trim()) {
+      setBodyError('Body must be filled')
+    } else {
+      setBodyError('')
+    }
   }
 
   return (
@@ -60,6 +74,7 @@ function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
           onChange={handleTitle}
           className="form-container__input"
         />
+        {titleError && <p style={{ color: 'red' }}>{titleError}</p>}
         <label htmlFor="content" className="form-container__label">
           Content
         </label>
@@ -70,6 +85,7 @@ function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
           onChange={handleContent}
           className="form-container__textarea"
         ></textarea>
+        {bodyError && <p style={{ color: 'red' }}>{bodyError}</p>}
         <div className="form-container__button">
           <Button
             text={buttonText}

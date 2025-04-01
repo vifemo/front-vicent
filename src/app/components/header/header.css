@@ -10,7 +10,6 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .header h1 {
@@ -30,6 +29,8 @@
   justify-content: space-between;
   gap: 7vh;
   align-items: start;
+  font-size: larger;
+  font-weight: 200;
 }
 
 .link-list li {

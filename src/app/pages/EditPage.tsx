@@ -7,16 +7,20 @@ import Subheader from '../components/subheader/Subheader'
 import { editPost } from '../actions/postActions'
 import { useDispatch } from 'react-redux'
 import '../../styles/pages/formpage.css'
+import { useNavigate } from 'react-router-dom'
 
 function EditPage() {
   const dispatch = useDispatch()
   const post = useFetchPost()
   const [error, setError] = useState<string | null>(null)
+  const navigate = useNavigate()
 
   const handleUpdateSubmit = (post: Post) => {
     try {
       dispatch(editPost(post.id, post))
+      alert('Post updated')
       setError(null)
+      return navigate(`/posts`)
     } catch (error) {
       setError('Error creating post. Please try again.')
     }

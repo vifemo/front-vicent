@@ -1,11 +1,11 @@
 .postgallery {
   display: flex;
   flex-wrap: wrap;
-  max-width: 90%; /* Ajusta el ancho para no superponerse con el sidebar */
+  max-width: 90%;
   gap: 10px;
   justify-content: space-around;
-  margin-top: 5%;
-  margin-left: 15%; /* Desplaza los posts para que no se superpongan con el sidebar */
+  margin-top: 10%;
+  margin-left: 15%;
 }
 
 .pagination-container {

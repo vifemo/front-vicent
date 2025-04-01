@@ -1,16 +1,9 @@
-.home-container {
-  display: flex;
-  margin-left: 10%;
-  padding: 20px;
-}
-
 .home-body-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   padding: 20px;
-  margin-top: 5%;
 }
 
 .home-body-container h1 {
