@@ -4,7 +4,7 @@ import PostForm from '../components/postform/PostForm'
 import { Post } from '../types/types'
 import Subheader from '../components/subheader/Subheader'
 import { useDispatch } from 'react-redux'
-import { addPost } from '../actions/postActions'
+import { addPost } from '../store/slices/slice'
 import '../../styles/pages/formpage.css'
 import { useNavigate } from 'react-router-dom'
 

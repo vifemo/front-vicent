@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
 import './postgallery.css'
 import PostCard from './../postcard/PostCard'
-
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchAllPosts } from '../../actions/postActions'
+import { fetchAllPosts } from '../../store/slices/slice'
 import { RootState } from '../../store/store'
 import Pagination from './../pagination/Pagination'
 import { getPosts } from '../../services/postService'
@@ -15,20 +14,26 @@ interface PostGalleryProps {
 function PostGallery({ numberOfItems = 12 }: PostGalleryProps) {
   const dispatch = useDispatch()
   const posts = useSelector((state: RootState) => state.posts)
+  const postss = useSelector((state: RootState) => state)
+  console.log('3', postss)
 
   useEffect(() => {
-    if (posts.length === 0) {
-      const fetchPosts = async () => {
-        const postsData = await getPosts()
-        dispatch(fetchAllPosts(postsData))
-      }
-      fetchPosts()
+    const fetchPosts = async () => {
+      const postsData = await getPosts()
+      console.log('1', postsData)
+      dispatch(fetchAllPosts(postsData))
     }
-  }, [dispatch, posts.length])
+    console.log('HOLA')
+    fetchPosts()
+  }, [dispatch])
+
+  useEffect(() => {
+    console.log('INI')
+  })
 
   const [currentPage, setCurrentPage] = useState(1)
   const postsPerPage = numberOfItems
-
+  console.log('2', posts)
   const indexOfLastPost = currentPage * postsPerPage
   const indexOfFirstPost = indexOfLastPost - postsPerPage
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)

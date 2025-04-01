@@ -5,7 +5,7 @@ import useFetchPost from '../hooks/useFetchPost'
 import Subheader from '../components/subheader/Subheader'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { deletePost } from '../actions/postActions'
+import { deletePost } from '../store/slices/slice'
 import Button from '../components/button/Button'
 
 function PostDetails() {

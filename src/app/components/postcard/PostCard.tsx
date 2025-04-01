@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import './postcard.css'
 import Button from '../button/Button'
 import { useDispatch } from 'react-redux'
-import { deletePost } from '../../actions/postActions'
+import { deletePost } from '../../store/slices/slice'
 
 interface PostCardProps {
   post: Post

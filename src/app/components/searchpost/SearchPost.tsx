@@ -3,7 +3,7 @@ import { Post } from '../../types/types'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../store/store'
-import { fetchAllPosts } from '../../actions/postActions'
+import { fetchAllPosts } from '../../store/slices/slice'
 import './searchpost.css'
 
 function SearchPost() {
