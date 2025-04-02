@@ -7,21 +7,29 @@ import { LANGUAGES } from '../../enums/global.enum'
 
 function Subheader() {
   const { t, i18n } = useTranslation()
+  const location = useLocation()
 
-  const setCurrentLanguage = (entry: LANGUAGES) => {
-    i18n.changeLanguage(entry)
+  // Obtener el idioma actual
+  const currentLanguage = i18n.language
+
+  // Función para cambiar el idioma
+  const toggleLanguage = () => {
+    const newLanguage =
+      currentLanguage === LANGUAGES.EN_US ? LANGUAGES.ES_ES : LANGUAGES.EN_US
+    i18n.changeLanguage(newLanguage)
   }
 
-  const location = useLocation()
   return (
     <div className="subheader">
-      <div className="subheader__item subheader__item">
+      <div className="subheader__item">
         {location.pathname !== '/' && <Breadcrumbs />}
         <SearchPost />
-        <h3>
-          {t('APP.SUBHEADER.CURRENT_LANGUAGE')} {currentLanguage}
-        </h3>
-        <button type="button" onClick={setCurrentLanguage}></button>
+        <div className="subheader__item--language">
+          {t('APP.SUBHEADER.CURRENT_LANGUAGE')}
+          <button type="button" onClick={toggleLanguage}>
+            {currentLanguage.toUpperCase()}
+          </button>
+        </div>
       </div>
     </div>
   )

@@ -35,8 +35,13 @@ export const setTranslations = (jsonTranslations: I18nType[]) => {
   const esES =
     filterTranslations(jsonTranslations, LANGUAGES.ES_ES) ?? esESBackup
 
-  enUS && i18n.addResourceBundle('en-US', 'translation', enUS)
-  esES && i18n.addResourceBundle('es-ES', 'translation', esES)
+  if (enUS) {
+    i18n.addResourceBundle('en-US', 'translation', enUS)
+  }
+
+  if (esES) {
+    i18n.addResourceBundle('es-ES', 'translation', esES)
+  }
 }
 
 export default i18n
