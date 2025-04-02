@@ -30,6 +30,7 @@ function PostGallery({ numberOfItems = 12 }: PostGalleryProps) {
           id: post.id,
           title: post.title,
           body: post.body,
+          userId: post.userId,
         }}
       />
     </div>

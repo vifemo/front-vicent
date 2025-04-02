@@ -27,6 +27,7 @@ function PostDetails() {
   const printDetails = (post: Post | null) => {
     return post ? (
       <section className="post-details">
+        <h2 className="post-details__userid">User: {post.userId}</h2>
         <h1 className="post-details__title">{post.title}</h1>
         <p className="post-details__body">{post.body}</p>
         <div className="postdetails__button-container">

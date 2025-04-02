@@ -12,7 +12,7 @@
 
 /* Variante primaria (por defecto) */
 .button--primary {
-  background: #1e0575;
+  background: rgba(2, 67, 142, 1);
 }
 
 .button--primary:hover {

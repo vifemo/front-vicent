@@ -19,6 +19,13 @@
 .post-details__title {
 }
 
+.post-details__userid {
+  padding: 0.3vh;
+  border-radius: 10%;
+  background-color: rgba(2, 67, 142, 1);
+  color: #fff;
+}
+
 .post-details__body {
   text-align: justify;
   font-size: large;
