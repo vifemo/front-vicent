@@ -10,7 +10,6 @@ interface PostFormProps {
   buttonText: string
 }
 
-//De momento creamos con id=0
 function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
   const newPostId = useFakeId()
   const [post, setPost] = useState<Post>({
@@ -18,6 +17,8 @@ function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
     title: initialPost?.title || '',
     body: initialPost?.body || '',
   })
+  const [titleError, setTitleError] = useState('')
+  const [bodyError, setBodyError] = useState('')
 
   useEffect(() => {
     if (initialPost) {
@@ -27,48 +28,70 @@ function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-
-    // Mejorar validación
-    if (post.title.trim() === '') {
-      post.title = "Title it's mandatory"
+    if (!post.title.trim()) {
+      setTitleError('Title is mandatory')
     }
-    if (post.body.trim() === '') {
-      post.body = 'Content must be field'
+    if (!post.body.trim()) {
+      setBodyError('Body must be filled')
     }
-    console.log(post)
-    onSubmit(post)
+    if (!titleError && !bodyError && post.title.trim() && post.body.trim()) {
+      console.log(post)
+      onSubmit(post)
+    }
   }
 
   const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPost({ ...post, title: e.target.value })
+    const newTitle = e.target.value
+    setPost({ ...post, title: newTitle })
+    if (!newTitle.trim()) {
+      setTitleError('Title is mandatory')
+    } else {
+      setTitleError('')
+    }
   }
 
   const handleContent = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setPost({ ...post, body: e.target.value })
+    const newBody = e.target.value
+    setPost({ ...post, body: newBody })
+    if (!newBody.trim()) {
+      setBodyError('Body must be filled')
+    } else {
+      setBodyError('')
+    }
   }
 
   return (
     <div className="post-container">
-      <form className="form-container">
-        <label htmlFor="title">Title</label>
+      <form className="form-container" onSubmit={handleSubmit}>
+        <label htmlFor="title" className="form-container__label">
+          Title
+        </label>
         <input
           type="text"
           id="title"
           value={post.title}
           placeholder="Set Title"
           onChange={handleTitle}
+          className="form-container__input"
         />
-        <label htmlFor="content">Content</label>
+        {titleError && <p style={{ color: 'red' }}>{titleError}</p>}
+        <label htmlFor="content" className="form-container__label">
+          Content
+        </label>
         <textarea
           id="content"
           value={post.body}
           placeholder="Set Content"
           onChange={handleContent}
+          className="form-container__textarea"
         ></textarea>
-        <Button
-          text={buttonText}
-          onClick={(e: React.FormEvent) => handleSubmit(e)}
-        />
+        {bodyError && <p style={{ color: 'red' }}>{bodyError}</p>}
+        <div className="form-container__button">
+          <Button
+            text={buttonText}
+            onClick={(e: React.FormEvent) => handleSubmit(e)}
+          />
+        </div>
       </form>
     </div>
   )

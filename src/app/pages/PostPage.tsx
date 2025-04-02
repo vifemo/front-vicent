@@ -1,5 +1,5 @@
 import Header from '../components/header/Header'
-import PostGallery from '../components/PostGallery'
+import PostGallery from '../components/postgallery/PostGallery'
 import Subheader from '../components/subheader/Subheader'
 
 function PostPage() {

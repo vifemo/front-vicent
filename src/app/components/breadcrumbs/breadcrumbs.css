@@ -1,17 +1,42 @@
 .breadcrumb {
-  background-color: aquamarine;
-  max-height: 20px;
-  max-width: 30%;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: auto;
+  display: inline-flex; /* Cambiado a inline-flex para ajustar al contenido */
+  align-items: center;
 }
 
 .breadcrumb-mid {
-  list-style-type: none;
   display: flex;
-  justify-content: space-evenly;
-  margin: 0;
+  list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .breadcrumb-item {
+  margin-right: 10px;
+}
+
+.breadcrumb-item::after {
+  content: '>';
+  margin-left: 10px;
+  color: white;
+}
+
+.breadcrumb-item:last-child::after {
+  content: '';
+}
+
+.breadcrumb-item a {
   text-decoration: none;
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb-item a:hover {
+  color: #0056b3;
+}
+
+.breadcrumb-item:last-child {
+  color: white;
 }

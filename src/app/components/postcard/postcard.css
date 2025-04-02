@@ -1,4 +1,4 @@
-.post-container {
+.postcard-container {
   display: flex;
   flex-wrap: wrap;
   max-width: 100%;
@@ -7,7 +7,7 @@
   margin-top: 50px;
 }
 
-.post-card {
+.postcard {
   width: 200px;
   height: auto;
   box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.498);
@@ -16,31 +16,33 @@
   background-color: white;
   padding: 15px;
   opacity: 85%;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
-.post-card:hover {
+.postcard:hover {
   opacity: 100%;
+  transform: scale(1.05);
 }
 
-.post-link {
+.postcard__link {
   text-decoration: none;
   cursor: pointer;
+  color: inherit;
 }
 
-.button-container {
+.postcard__button-container {
   display: flex;
   justify-content: space-around;
   padding-top: 0;
   opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.post-card:hover .button-container {
+.postcard:hover .postcard__button-container {
   opacity: 1;
   transform: translateY(0);
-}
-
-.post-card:hover {
-  transform: scale(1.05);
 }
 
 .pagination-container {

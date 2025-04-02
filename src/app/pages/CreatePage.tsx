@@ -2,40 +2,37 @@ import { useState } from 'react'
 import Header from '../components/header/Header'
 import PostForm from '../components/postform/PostForm'
 import { Post } from '../types/types'
-import { createPost } from '../services/postService'
 import Subheader from '../components/subheader/Subheader'
 import { useDispatch } from 'react-redux'
-import { addPost } from '../actions/postActions'
+import { addPost } from '../store/slices/slice'
+import '../../styles/pages/formpage.css'
+import { useNavigate } from 'react-router-dom'
 
 function CreatePage() {
-  const [newPost, setNewPost] = useState<Post | null>(null)
   const [error, setError] = useState<string | null>(null)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const handleCreateSubmit = (post: Post) => {
     try {
       dispatch(addPost(post))
+      alert('Post created')
       setError(null)
+      return navigate(`/posts`)
     } catch (error) {
       setError('Error creating post. Please try again.')
     }
   }
 
-  //No me está renderizando newPost
   return (
     <div>
       <Header />
       <Subheader />
-      <h1>Create a new Post</h1>
-      <PostForm onSubmit={handleCreateSubmit} buttonText="Create" />
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {newPost && (
-        <div>
-          <h2>{newPost.id}</h2>
-          <h2>{newPost.title}</h2>
-          <h2>{newPost.body}</h2>
-        </div>
-      )}
+      <div className="form-page">
+        <h1>Create a new Post</h1>
+        <PostForm onSubmit={handleCreateSubmit} buttonText="Create" />
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+      </div>
     </div>
   )
 }
