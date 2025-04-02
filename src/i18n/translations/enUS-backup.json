@@ -1,0 +1,22 @@
+{
+  "APP.TEST": "Trying i18n. English mode",
+  "APP.HEADER.HOME": "Home",
+  "APP.HEADER.POSTS": "Posts",
+  "APP.HEADER.CREATE": "Create",
+  "APP.BUTTON.EDIT": "Edit",
+  "APP.BUTTON.DELETE": "Delete",
+  "APP.BUTTON.CREATE": "Create",
+  "APP.PAGE.FORM.CREATE.TITLE": "Create a new Post",
+  "APP.PAGE.FORM.EDIT.TITLE": "Edit Post",
+  "APP.FORM.TITLE": "Title",
+  "APP.FORM.CONTENT": "Content",
+  "APP.FORM.TITLE.PLACEHOLDER": "Set Title",
+  "APP.FORM.CONTENT.PLACEHOLDER": "Set Content",
+  "APP.FORM.TITLE.ERROR": "Title is mandatory",
+  "APP.FORM.CONTENT.ERROR": "Body must be filled",
+  "APP.SEARCH.PLACEHOLDER": "Search post by title",
+  "APP.SUBHEADER.CURRENT_LANGUAGE": "Current language:",
+  "APP.PAGINATION.PREV": "Prev",
+  "APP.PAGINATION.NEXT": "Next",
+  "APP.DETAILS_PAGE.USER": "User"
+}
