@@ -1,5 +1,6 @@
 import React from 'react'
 import './pagination.css'
+import { useTranslation } from 'react-i18next'
 
 interface PaginationProps {
   currentPage: number
@@ -12,6 +13,7 @@ const Pagination: React.FC<PaginationProps> = ({
   totalPages,
   onPageChange,
 }) => {
+  const { t } = useTranslation()
   return (
     <div className="pagination">
       <button
@@ -19,7 +21,7 @@ const Pagination: React.FC<PaginationProps> = ({
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
-        Prev
+        {t('APP.PAGINATION.PREV')}
       </button>
 
       {[...Array(totalPages)].map((_, i) => (
@@ -37,7 +39,7 @@ const Pagination: React.FC<PaginationProps> = ({
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
-        Next
+        {t('APP.PAGINATION.NEXT')}
       </button>
     </div>
   )

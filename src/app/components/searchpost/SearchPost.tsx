@@ -3,10 +3,15 @@ import { Post } from '../../types/types'
 import { Link } from 'react-router-dom'
 
 import './searchpost.css'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store/store'
+import { useTranslation } from 'react-i18next'
 
 function SearchPost() {
+  const { t } = useTranslation()
   const [query, setQuery] = useState('')
   const [filtered, setFiltered] = useState<Post[]>([])
+  const { posts } = useSelector((state: RootState) => state.posts_reducer)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
@@ -25,7 +30,7 @@ function SearchPost() {
     <div className="search-container">
       <input
         type="search"
-        placeholder="Search post by title"
+        placeholder={t('APP.SEARCH.PLACEHOLDER')}
         value={query}
         onChange={handleChange}
         className="search-container__input"

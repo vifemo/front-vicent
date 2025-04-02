@@ -44,8 +44,13 @@
   width: 100%;
   text-align: left;
   transition: background-color 0.3s ease;
+  border-radius: 15%;
 }
 
 .link:hover {
-  background-color: #575757;
+  padding: 2vh;
+  padding-left: 0;
+  background-color: #fff;
+  color: black;
+  border-radius: 15%;
 }
