@@ -21,8 +21,6 @@ function PostGallery({ numberOfItems = 12 }: PostGalleryProps) {
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
   const totalPages = Math.ceil(posts.length / postsPerPage)
 
-  console.log('asdasd', posts)
-
   const printPosts = currentPosts.map((post: Post) => (
     <div key={post.id}>
       <PostCard
