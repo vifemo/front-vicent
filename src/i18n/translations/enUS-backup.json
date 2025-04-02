@@ -3,6 +3,7 @@
   "APP.HEADER.HOME": "Home",
   "APP.HEADER.POSTS": "Posts",
   "APP.HEADER.CREATE": "Create",
+  "APP.BREADCRUMBS.CREATE": "create",
   "APP.BUTTON.EDIT": "Edit",
   "APP.BUTTON.DELETE": "Delete",
   "APP.BUTTON.CREATE": "Create",

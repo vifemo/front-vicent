@@ -25,9 +25,9 @@ function Subheader() {
         {location.pathname !== '/' && <Breadcrumbs />}
         <SearchPost />
         <div className="subheader__item--language">
-          {t('APP.SUBHEADER.CURRENT_LANGUAGE')}
+          {/* <p>{t('APP.SUBHEADER.CURRENT_LANGUAGE')}</p> */}
           <button type="button" onClick={toggleLanguage}>
-            {currentLanguage.toUpperCase()}
+            {currentLanguage}
           </button>
         </div>
       </div>

@@ -19,7 +19,11 @@ function Breadcrumbs() {
           return (
             <li key={index} className="breadcrumb-item">
               {index === paths.length - 1 ? (
-                path
+                path === 'create' ? (
+                  t('APP.BREADCRUMBS.CREATE')
+                ) : (
+                  path
+                )
               ) : (
                 <Link to={isEditPage ? '/posts' : routeTo}>
                   {isEditPage ? 'posts' : path}
