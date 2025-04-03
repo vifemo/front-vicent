@@ -1,0 +1,23 @@
+{
+  "APP.TEST": "Prueba de i18n. En castellano",
+  "APP.HEADER.HOME": "Inicio",
+  "APP.HEADER.POSTS": "Posts",
+  "APP.HEADER.CREATE": "Crear",
+  "APP.BREADCRUMBS.CREATE": "crear",
+  "APP.BUTTON.EDIT": "Editar",
+  "APP.BUTTON.DELETE": "Eliminar",
+  "APP.BUTTON.CREATE": "Crear",
+  "APP.PAGE.FORM.CREATE.TITLE": "Crear un nuevo post",
+  "APP.PAGE.FORM.EDIT.TITLE": "Editar post",
+  "APP.FORM.TITLE": "Título",
+  "APP.FORM.CONTENT": "Contenido",
+  "APP.FORM.TITLE.PLACEHOLDER": "Escribe el título",
+  "APP.FORM.CONTENT.PLACEHOLDER": "Escribe el contenido",
+  "APP.FORM.TITLE.ERROR": "El título es obligatorio",
+  "APP.FORM.CONTENT.ERROR": "Debes rellenar el contenido",
+  "APP.SEARCH.PLACEHOLDER": "Buscar por título",
+  "APP.SUBHEADER.CURRENT_LANGUAGE": "Idioma actual:",
+  "APP.PAGINATION.PREV": "Ant",
+  "APP.PAGINATION.NEXT": "Sig",
+  "APP.DETAILS_PAGE.USER": "Usuario: "
+}

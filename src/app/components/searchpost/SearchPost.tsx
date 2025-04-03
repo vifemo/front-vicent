@@ -1,27 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Post } from '../../types/types'
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '../../store/store'
-import { fetchAllPosts } from '../../store/slices/slice'
 import './searchpost.css'
-import { getPosts } from '../../services/postService'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store/store'
+import { useTranslation } from 'react-i18next'
 
 function SearchPost() {
+  const { t } = useTranslation()
   const [query, setQuery] = useState('')
   const [filtered, setFiltered] = useState<Post[]>([])
   const { posts } = useSelector((state: RootState) => state.posts_reducer)
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    if (posts.length === 0) {
-      const fetchPosts = async () => {
-        const postsData = await getPosts()
-        dispatch(fetchAllPosts(postsData))
-      }
-      fetchPosts()
-    }
-  }, [dispatch, posts.length])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
@@ -40,7 +29,7 @@ function SearchPost() {
     <div className="search-container">
       <input
         type="search"
-        placeholder="Search post by title"
+        placeholder={t('APP.SEARCH.PLACEHOLDER')}
         value={query}
         onChange={handleChange}
         className="search-container__input"

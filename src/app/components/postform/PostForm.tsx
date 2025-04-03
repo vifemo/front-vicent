@@ -3,6 +3,7 @@ import './postform.css'
 import { useState, useEffect } from 'react'
 import { Post } from '../../types/types'
 import { useFakeId } from '../../helper/idHelper'
+import { useTranslation } from 'react-i18next'
 
 interface PostFormProps {
   initialPost?: Post | null
@@ -11,11 +12,14 @@ interface PostFormProps {
 }
 
 function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
+  const { t } = useTranslation()
   const newPostId = useFakeId()
   const [post, setPost] = useState<Post>({
     id: initialPost?.id || newPostId,
     title: initialPost?.title || '',
     body: initialPost?.body || '',
+    //genera un userId de prueba
+    userId: initialPost?.userId || newPostId - 90,
   })
   const [titleError, setTitleError] = useState('')
   const [bodyError, setBodyError] = useState('')
@@ -29,10 +33,10 @@ function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (!post.title.trim()) {
-      setTitleError('Title is mandatory')
+      setTitleError(t('APP.FORM.TITLE.ERROR'))
     }
     if (!post.body.trim()) {
-      setBodyError('Body must be filled')
+      setBodyError(t('APP.FORM.CONTENT.ERROR'))
     }
     if (!titleError && !bodyError && post.title.trim() && post.body.trim()) {
       console.log(post)
@@ -44,7 +48,7 @@ function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
     const newTitle = e.target.value
     setPost({ ...post, title: newTitle })
     if (!newTitle.trim()) {
-      setTitleError('Title is mandatory')
+      setTitleError(t('APP.FORM.TITLE.ERROR'))
     } else {
       setTitleError('')
     }
@@ -54,7 +58,7 @@ function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
     const newBody = e.target.value
     setPost({ ...post, body: newBody })
     if (!newBody.trim()) {
-      setBodyError('Body must be filled')
+      setBodyError(t('APP.FORM.CONTENT.ERROR'))
     } else {
       setBodyError('')
     }
@@ -64,24 +68,24 @@ function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
     <div className="post-container">
       <form className="form-container" onSubmit={handleSubmit}>
         <label htmlFor="title" className="form-container__label">
-          Title
+          {t('APP.FORM.TITLE')}
         </label>
         <input
           type="text"
           id="title"
           value={post.title}
-          placeholder="Set Title"
+          placeholder={t('APP.FORM.TITLE.PLACEHOLDER')}
           onChange={handleTitle}
           className="form-container__input"
         />
         {titleError && <p style={{ color: 'red' }}>{titleError}</p>}
         <label htmlFor="content" className="form-container__label">
-          Content
+          {t('APP.FORM.CONTENT')}
         </label>
         <textarea
           id="content"
           value={post.body}
-          placeholder="Set Content"
+          placeholder={t('APP.FORM.CONTENT.PLACEHOLDER')}
           onChange={handleContent}
           className="form-container__textarea"
         ></textarea>

@@ -5,8 +5,26 @@ import './App.css'
 import CreatePage from './pages/CreatePage'
 import PostDetails from './pages/PostDetails'
 import EditPage from './pages/EditPage'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from './store/store'
+import { fetchAllPosts } from './store/slices/slice'
+import { getPosts } from './services/postService'
+import { useEffect } from 'react'
 
 function App() {
+  const { posts } = useSelector((state: RootState) => state.posts_reducer)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (posts.length === 0) {
+      const fetchPosts = async () => {
+        const postsData = await getPosts()
+        dispatch(fetchAllPosts(postsData))
+      }
+      fetchPosts()
+    }
+  }, [dispatch, posts.length])
+
   return (
     <>
       <Routes>

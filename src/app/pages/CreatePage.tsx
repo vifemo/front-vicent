@@ -7,8 +7,10 @@ import { useDispatch } from 'react-redux'
 import { addPost } from '../store/slices/slice'
 import '../../styles/pages/formpage.css'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 function CreatePage() {
+  const { t } = useTranslation()
   const [error, setError] = useState<string | null>(null)
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -29,8 +31,11 @@ function CreatePage() {
       <Header />
       <Subheader />
       <div className="form-page">
-        <h1>Create a new Post</h1>
-        <PostForm onSubmit={handleCreateSubmit} buttonText="Create" />
+        <h1>{t('APP.PAGE.FORM.CREATE.TITLE')}</h1>
+        <PostForm
+          onSubmit={handleCreateSubmit}
+          buttonText={t('APP.BUTTON.CREATE')}
+        />
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </div>
     </div>

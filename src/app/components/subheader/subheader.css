@@ -18,3 +18,28 @@
   margin-left: auto;
   margin-right: 10%;
 }
+
+.subheader__item--language {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2vh;
+}
+
+.subheader__item--language button {
+  background-color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  transform: translateY(-1px);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: 2px outset #fff;
+}
+
+.subheader__item--language button:hover {
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.274);
+  background-color: rgba(2, 67, 142, 1);
+  color: #fff;
+}
