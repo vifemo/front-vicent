@@ -31,7 +31,7 @@ function CreatePage() {
       <Header />
       <Subheader />
       <div className="form-page">
-        <h1>{t('APP.PAGE.FORM.CREATE.TITLE')}</h1>
+        <h1 className="title-change">{t('APP.PAGE.FORM.CREATE.TITLE')}</h1>
         <PostForm
           onSubmit={handleCreateSubmit}
           buttonText={t('APP.BUTTON.CREATE')}

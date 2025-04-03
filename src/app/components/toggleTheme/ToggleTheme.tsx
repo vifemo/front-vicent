@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import './toggleTheme.css'
 
 function ToggleTheme() {
   const storedTheme = localStorage.getItem('theme') || 'dark'
@@ -14,7 +15,7 @@ function ToggleTheme() {
   }
 
   return (
-    <div>
+    <div className="toggletheme">
       <button onClick={handleChangeTheme}>
         {theme === 'light' ? 'dark' : 'light'}
       </button>

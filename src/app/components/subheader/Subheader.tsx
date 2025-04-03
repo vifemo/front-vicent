@@ -4,7 +4,7 @@ import SearchPost from '../searchpost/SearchPost'
 import './subheader.css'
 import { useTranslation } from 'react-i18next'
 import { LANGUAGES } from '../../enums/global.enum'
-import ToggleTheme from '../../components/ToggleTheme'
+import ToggleTheme from '../toggleTheme/ToggleTheme'
 
 function Subheader() {
   const { i18n } = useTranslation()

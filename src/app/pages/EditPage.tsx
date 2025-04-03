@@ -33,7 +33,7 @@ function EditPage() {
       <Header />
       <Subheader />
       <div className="form-page">
-        <h1>{t('APP.PAGE.FORM.EDIT.TITLE')}</h1>
+        <h1 className="title-change">{t('APP.PAGE.FORM.EDIT.TITLE')}</h1>
         <PostForm
           initialPost={post}
           onSubmit={handleUpdateSubmit}
