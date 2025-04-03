@@ -24,5 +24,7 @@
   "APP.SUBHEADER.CURRENT_LANGUAGE": "Current language:",
   "APP.PAGINATION.PREV": "Prev",
   "APP.PAGINATION.NEXT": "Next",
-  "APP.DETAILS_PAGE.USER": "User: "
+  "APP.DETAILS_PAGE.USER": "User: ",
+  "APP.BUTTON.LIGHT": "Light",
+  "APP.BUTTON.DARK": "Dark"
 }
