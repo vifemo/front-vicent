@@ -66,7 +66,7 @@ function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
 
   return (
     <div className="post-container">
-      <form className="form-container" onSubmit={handleSubmit}>
+      <form className="form-container no-theme" onSubmit={handleSubmit}>
         <label htmlFor="title" className="form-container__label">
           {t('APP.FORM.TITLE')}
         </label>

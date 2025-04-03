@@ -24,7 +24,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
     return navigate(`/edit/${id}`)
   }
   return (
-    <div className="postcard">
+    <div className="postcard no-theme">
       <h2>
         <Link to={`/posts/${post.id}`} className="postcard__link">
           {post.title}

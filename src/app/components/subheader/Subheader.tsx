@@ -4,6 +4,7 @@ import SearchPost from '../searchpost/SearchPost'
 import './subheader.css'
 import { useTranslation } from 'react-i18next'
 import { LANGUAGES } from '../../enums/global.enum'
+import ToggleTheme from '../../components/ToggleTheme'
 
 function Subheader() {
   const { i18n } = useTranslation()
@@ -25,10 +26,12 @@ function Subheader() {
         {location.pathname !== '/' && <Breadcrumbs />}
         <SearchPost />
         <div className="subheader__item--language">
-          {/* <p>{t('APP.SUBHEADER.CURRENT_LANGUAGE')}</p> */}
           <button type="button" onClick={toggleLanguage}>
             {currentLanguage}
           </button>
+        </div>
+        <div>
+          <ToggleTheme />
         </div>
       </div>
     </div>
