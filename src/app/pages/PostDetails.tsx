@@ -19,7 +19,7 @@ function PostDetails() {
 
   const handleDelete = (id: number) => {
     dispatch(deletePost(id))
-    alert('Post deleted')
+    alert(t('APP.FORM.DELETE.ALERT'))
     return navigate(`/posts`)
   }
 

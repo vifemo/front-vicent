@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { LANGUAGES } from '../../enums/global.enum'
 
 function Subheader() {
-  const { t, i18n } = useTranslation()
+  const { i18n } = useTranslation()
   const location = useLocation()
 
   // Obtener el idioma actual

@@ -17,7 +17,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
 
   const handleDelete = (id: number) => {
     dispatch(deletePost(id))
-    alert('Post deleted')
+    alert(t('APP.FORM.DELETE.ALERT'))
   }
 
   const goToEdit = (id: number) => {

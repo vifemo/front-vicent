@@ -8,3 +8,13 @@ body {
   );
   min-height: 100vh;
 }
+
+:root {
+  --background-color: black;
+  --text-color: white;
+}
+
+.light-mode {
+  --background-color: white;
+  --text-color: black;
+}

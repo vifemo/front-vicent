@@ -20,11 +20,11 @@ function EditPage() {
   const handleUpdateSubmit = (post: Post) => {
     try {
       dispatch(editPost({ id: post.id, updatedPost: post }))
-      alert('Post updated')
+      alert(t('APP.FORM.EDIT.ALERT'))
       setError(null)
       return navigate(`/posts`)
     } catch (error) {
-      setError('Error creating post. Please try again.')
+      setError(t('APP.FORM.EDIT.ERROR'))
     }
   }
 

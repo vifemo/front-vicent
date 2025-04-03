@@ -18,11 +18,11 @@ function CreatePage() {
   const handleCreateSubmit = (post: Post) => {
     try {
       dispatch(addPost(post))
-      alert('Post created')
+      alert(t('APP.FORM.CREATE.ALERT'))
       setError(null)
       return navigate(`/posts`)
     } catch (error) {
-      setError('Error creating post. Please try again.')
+      setError(t('APP.FORM.CREATE.ERROR'))
     }
   }
 
