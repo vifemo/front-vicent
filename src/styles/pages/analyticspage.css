@@ -1,0 +1,8 @@
+.highcharts-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%;
+  margin-top: 10%;
+  margin-left: 10%;
+}

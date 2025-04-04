@@ -10,6 +10,7 @@ import { RootState } from './store/store'
 import { fetchAllPosts } from './store/slices/slice'
 import { getPosts } from './services/postService'
 import { useEffect } from 'react'
+import AnalyticsPage from './pages/AnalyticsPage'
 
 function App() {
   const { posts } = useSelector((state: RootState) => state.posts_reducer)
@@ -33,6 +34,7 @@ function App() {
         <Route path="/create" element={<CreatePage />} />
         <Route path="/posts/:id" element={<PostDetails />} />
         <Route path="/edit/:id" element={<EditPage />} />
+        <Route path="/analytics" element={<AnalyticsPage />} />
       </Routes>
     </>
   )

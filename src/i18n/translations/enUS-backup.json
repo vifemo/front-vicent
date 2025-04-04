@@ -3,12 +3,15 @@
   "APP.HEADER.HOME": "Home",
   "APP.HEADER.POSTS": "Posts",
   "APP.HEADER.CREATE": "Create",
+  "APP.HEADER.ANLYTICS": "Analytics",
   "APP.BREADCRUMBS.CREATE": "create",
+  "APP.BREADCRUMBS.ANALYTICS": "analytics",
   "APP.BUTTON.EDIT": "Edit",
   "APP.BUTTON.DELETE": "Delete",
   "APP.BUTTON.CREATE": "Create",
   "APP.PAGE.FORM.CREATE.TITLE": "Create a new Post",
   "APP.PAGE.FORM.EDIT.TITLE": "Edit Post",
+  "APP.PAGE.ANALYTICS.TITLE": "Analytics",
   "APP.FORM.TITLE": "Title",
   "APP.FORM.CONTENT": "Content",
   "APP.FORM.TITLE.PLACEHOLDER": "Set Title",
@@ -26,5 +29,11 @@
   "APP.PAGINATION.NEXT": "Next",
   "APP.DETAILS_PAGE.USER": "User: ",
   "APP.BUTTON.LIGHT": "Light",
-  "APP.BUTTON.DARK": "Dark"
+  "APP.BUTTON.DARK": "Dark",
+  "APP.ANALYTICS.USER.TITLE": "Posts by user",
+  "APP.ANALYTICS.COMMENTS.TITLE": "Comments by post",
+  "APP.ANALYTICS.USER.CATEGORIES": "Users",
+  "APP.ANALYTICS.COMMENTS.CATEGORIES": "Comments",
+  "APP.ANALYTICS.USER.LEGEND": "Users",
+  "APP.ANALYTICS.COMMENTS.LEGEND": "Comments"
 }

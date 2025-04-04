@@ -33,7 +33,7 @@ function HighchartsComp<Generic>({
     chart: { type: 'bar' },
     title: { text: title },
     xAxis: { categories: chartData.labels, title: { text: categories } },
-    yAxis: { title: { text: legend } },
+    yAxis: { title: { text: null } },
     series: [{ name: title, data: chartData.values }],
   }
 
