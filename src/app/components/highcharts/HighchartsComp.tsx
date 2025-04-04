@@ -3,24 +3,28 @@ import HighchartsReact from 'highcharts-react-official'
 import { useEffect, useState } from 'react'
 
 interface HighchartsCompProps<Generic> {
-  fetchDataFunction: () => Generic[] // Función que retorna un array genérico
-  mapData: (data: Generic[]) => { labels: number[]; values: number[] } // Función de mapeo
-  title: string // Permite personalizar el título de la gráfica
+  fetchDataFunction: () => Generic[]
+  mapData: (data: Generic[]) => { labels: string[]; values: number[] }
+  title: string
+  categories: string
+  legend: string
 }
 
 function HighchartsComp<Generic>({
   fetchDataFunction,
   mapData,
   title,
+  categories,
+  legend,
 }: HighchartsCompProps<Generic>) {
   const [chartData, setChartData] = useState<{
-    labels: number[]
+    labels: string[]
     values: number[]
   }>({ labels: [], values: [] })
 
   useEffect(() => {
     const data = fetchDataFunction()
-    const { labels, values } = mapData(data) // Se usa la función personalizada
+    const { labels, values } = mapData(data)
     setChartData({ labels, values })
     console.log('sda', { const: { labels, values } })
   }, [fetchDataFunction, mapData])
@@ -28,8 +32,8 @@ function HighchartsComp<Generic>({
   const options = {
     chart: { type: 'bar' },
     title: { text: title },
-    xAxis: { categories: chartData.labels, title: { text: 'Categories' } },
-    yAxis: { title: { text: 'Values' } },
+    xAxis: { categories: chartData.labels, title: { text: categories } },
+    yAxis: { title: { text: legend } },
     series: [{ name: title, data: chartData.values }],
   }
 

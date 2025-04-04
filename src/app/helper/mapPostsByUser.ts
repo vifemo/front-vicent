@@ -1,7 +1,7 @@
 import { Post } from '../types/types'
 
 /**
- * Mapea un array de posts y lo transforma en labels: id, values: numbers
+ * Mapea un array de posts y lo transforma en labels: UserId, values: numbers
  * @returns
  */
 export const mapPostsByUser = (posts: Post[]) => {
