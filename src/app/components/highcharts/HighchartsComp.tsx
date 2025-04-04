@@ -1,46 +1,39 @@
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import { useEffect, useState } from 'react'
-import { getComments } from '../../services/commentsService'
-import { Comment } from '../../types/types'
 
-function HighchartsComp() {
-  const [comments, setComments] = useState(Comment)
+interface HighchartsCompProps<Generic> {
+  fetchDataFunction: () => Generic[] // Función que retorna un array genérico
+  mapData: (data: Generic[]) => { labels: number[]; values: number[] } // Función de mapeo
+  title: string // Permite personalizar el título de la gráfica
+}
+
+function HighchartsComp<Generic>({
+  fetchDataFunction,
+  mapData,
+  title,
+}: HighchartsCompProps<Generic>) {
+  const [chartData, setChartData] = useState<{
+    labels: number[]
+    values: number[]
+  }>({ labels: [], values: [] })
 
   useEffect(() => {
-    const getCommenta = async () => {
-      const data = await getComments()
-      setComments(data)
-    }
-    getCommenta()
-  }, [])
+    const data = fetchDataFunction()
+    const { labels, values } = mapData(data) // Se usa la función personalizada
+    setChartData({ labels, values })
+    console.log('sda', { const: { labels, values } })
+  }, [fetchDataFunction, mapData])
 
   const options = {
-    chart: {
-      type: 'bar',
-    },
-    title: {
-      text: 'Comments',
-    },
-    xAxis: {
-      categories: ['User1', 'User2', 'User3'],
-    },
-    yAxis: {
-      title: {
-        text: 'Comments',
-      },
-    },
-    series: [
-      {
-        data: [1, 2, 1, 4, 3, 6],
-      },
-    ],
+    chart: { type: 'bar' },
+    title: { text: title },
+    xAxis: { categories: chartData.labels, title: { text: 'Categories' } },
+    yAxis: { title: { text: 'Values' } },
+    series: [{ name: title, data: chartData.values }],
   }
-  return (
-    <div>
-      <HighchartsReact highcharts={Highcharts} options={options} />
-    </div>
-  )
+
+  return <HighchartsReact highcharts={Highcharts} options={options} />
 }
 
 export default HighchartsComp
