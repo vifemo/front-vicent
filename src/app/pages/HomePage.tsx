@@ -2,8 +2,18 @@ import Header from '../components/header/Header'
 import PostGallery from '../components/postgallery/PostGallery'
 import Subheader from '../components/subheader/Subheader'
 import '../../styles/pages/home.css'
+import { useEffect } from 'react'
+import { getComments } from '../services/commentsService'
 
 function HomePage() {
+  useEffect(() => {
+    const getCommenta = async () => {
+      const data = await getComments()
+      console.log(data)
+    }
+    getCommenta()
+  }, [])
+
   return (
     <div>
       <Header />

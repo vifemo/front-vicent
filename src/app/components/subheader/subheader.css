@@ -1,5 +1,4 @@
 .subheader {
-  background-color: #333;
   display: flex;
   justify-content: flex-end;
   padding: 0.5em;
@@ -14,6 +13,7 @@
 
 .subheader__item {
   display: flex;
+  align-items: center;
   flex-direction: row;
   margin-left: auto;
   margin-right: 10%;
@@ -27,7 +27,7 @@
 
 .subheader__item--language button {
   background-color: #fff;
-  font-size: 15px;
+  font-size: 1.5vh;
   font-weight: bold;
   width: 5vh;
   height: 5vh;

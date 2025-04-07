@@ -19,7 +19,7 @@ function PostDetails() {
 
   const handleDelete = (id: number) => {
     dispatch(deletePost(id))
-    alert('Post deleted')
+    alert(t('APP.FORM.DELETE.ALERT'))
     return navigate(`/posts`)
   }
 
@@ -29,7 +29,7 @@ function PostDetails() {
 
   const printDetails = (post: Post | null) => {
     return post ? (
-      <section className="post-details">
+      <section className="post-details no-theme">
         <h2 className="post-details__userid">
           {t('APP.DETAILS_PAGE.USER')} {post.userId}
         </h2>

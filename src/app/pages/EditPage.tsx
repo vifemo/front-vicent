@@ -20,11 +20,11 @@ function EditPage() {
   const handleUpdateSubmit = (post: Post) => {
     try {
       dispatch(editPost({ id: post.id, updatedPost: post }))
-      alert('Post updated')
+      alert(t('APP.FORM.EDIT.ALERT'))
       setError(null)
       return navigate(`/posts`)
     } catch (error) {
-      setError('Error creating post. Please try again.')
+      setError(t('APP.FORM.EDIT.ERROR'))
     }
   }
 
@@ -33,7 +33,7 @@ function EditPage() {
       <Header />
       <Subheader />
       <div className="form-page">
-        <h1>{t('APP.PAGE.FORM.EDIT.TITLE')}</h1>
+        <h1 className="title-change">{t('APP.PAGE.FORM.EDIT.TITLE')}</h1>
         <PostForm
           initialPost={post}
           onSubmit={handleUpdateSubmit}

@@ -17,14 +17,14 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
 
   const handleDelete = (id: number) => {
     dispatch(deletePost(id))
-    alert('Post deleted')
+    alert(t('APP.FORM.DELETE.ALERT'))
   }
 
   const goToEdit = (id: number) => {
     return navigate(`/edit/${id}`)
   }
   return (
-    <div className="postcard">
+    <div className="postcard no-theme">
       <h2>
         <Link to={`/posts/${post.id}`} className="postcard__link">
           {post.title}

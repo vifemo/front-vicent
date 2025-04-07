@@ -1,4 +1,4 @@
-body {
+/* body {
   background: rgb(1, 0, 28);
   background: linear-gradient(
     0deg,
@@ -7,4 +7,82 @@ body {
     rgba(2, 67, 142, 1) 56%
   );
   min-height: 100vh;
+} */
+
+:root {
+  --background-gradient: linear-gradient(
+    0deg,
+    rgba(1, 0, 28, 1) 0%,
+    rgb(1, 41, 75) 30%,
+    rgba(2, 67, 142, 1) 56%
+  );
+  --text-color: white;
+}
+
+.no-theme {
+  background: white !important;
+  color: black !important;
+}
+
+.light-mode {
+  --background-gradient: linear-gradient(
+    0deg,
+    rgb(225, 225, 228) 0%,
+    rgb(225, 225, 225) 30%,
+    rgb(255, 255, 255) 56%
+  );
+  --text-color: black;
+}
+
+body {
+  background: var(--background-gradient);
+  color: var(--text-color);
+  min-height: 100vh;
+  transition:
+    background-color 0.3s ease,
+    color 0.5s ease;
+}
+
+.title-change {
+  color: white;
+}
+
+.light-mode .title-change {
+  color: black;
+}
+
+.subheader {
+  background-color: #333;
+}
+
+.light-mode .subheader {
+  background-color: #e4e4e4;
+}
+
+.header {
+  background-color: #333;
+}
+
+.light-mode .header {
+  background-color: #e4e4e4;
+}
+
+.link {
+  color: white;
+}
+
+.light-mode .link {
+  color: black;
+}
+
+.breadcrumb-item::after {
+  color: white;
+}
+
+.light-mode .breadcrumb-item::after {
+  color: black;
+}
+
+.light-mode .breadcrumb-item:last-child {
+  color: black;
 }
