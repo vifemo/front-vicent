@@ -3,6 +3,9 @@
 }
 
 .toggletheme button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #fff;
   font-size: 1.2vh;
   font-weight: bold;

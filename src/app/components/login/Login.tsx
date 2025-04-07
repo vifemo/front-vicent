@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Button from '../button/Button'
 import './login.css'
+import { useTranslation } from 'react-i18next'
 
 //usuarios de prueba
 const users = [
@@ -10,6 +11,7 @@ const users = [
 ]
 
 function Login() {
+  const { t } = useTranslation()
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
@@ -28,13 +30,14 @@ function Login() {
       )
       navigate('/')
     } else {
-      alert('Incorrect login')
+      alert(t('APP.LOGIN.EROR'))
     }
   }
 
   const handleLogout = () => {
-    alert('Logged out')
+    alert(t('APP.LOGOUT.MESSAGE'))
     sessionStorage.removeItem('user')
+    navigate('/')
   }
 
   return (
@@ -43,20 +46,20 @@ function Login() {
         <input
           className="login-container__input"
           type="text"
-          placeholder="User"
+          placeholder={t('APP.LOGIN.USER.PLACEHOLDER')}
           value={userName}
           onChange={(e) => {
-            setUserName(e.target.value)
+            setUserName(e.target.value.toLowerCase())
           }}
           required
         />
         <input
           className="login-container__input"
           type="text"
-          placeholder="Password"
+          placeholder={t('APP.LOGIN.PASSWORD.PLACEHOLDER')}
           value={password}
           onChange={(e) => {
-            setPassword(e.target.value)
+            setPassword(e.target.value.toLowerCase())
           }}
           required
         />
