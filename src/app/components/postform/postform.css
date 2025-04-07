@@ -30,6 +30,9 @@
   font-size: 16px;
   margin-bottom: 15px;
   transition: border-color 0.3s ease;
+  font-family:
+    'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans',
+    Arial, sans-serif;
 }
 
 .form-container__input:focus,

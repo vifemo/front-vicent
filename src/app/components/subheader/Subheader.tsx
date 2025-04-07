@@ -5,6 +5,7 @@ import './subheader.css'
 import { useTranslation } from 'react-i18next'
 import { LANGUAGES } from '../../enums/global.enum'
 import ToggleTheme from '../toggleTheme/ToggleTheme'
+import ReactLogo from '../../../assets/react.svg'
 
 function Subheader() {
   const { i18n } = useTranslation()
@@ -22,6 +23,9 @@ function Subheader() {
 
   return (
     <div className="subheader">
+      <div className="subheader__logo">
+        <img src={ReactLogo} alt="" />
+      </div>
       <div className="subheader__item">
         {location.pathname !== '/' && <Breadcrumbs />}
         <SearchPost />
