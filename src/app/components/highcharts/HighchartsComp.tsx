@@ -24,7 +24,6 @@ function HighchartsComp<Generic>({
     const data = fetchDataFunction()
     const { labels, values } = mapData(data)
     setChartData({ labels, values })
-    console.log('sda', { const: { labels, values } })
   }, [fetchDataFunction, mapData])
 
   const options = {

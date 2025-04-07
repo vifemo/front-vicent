@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import Breadcrumbs from '../breadcrumbs/Breadcrumbs'
 import SearchPost from '../searchpost/SearchPost'
 import './subheader.css'
@@ -6,11 +6,11 @@ import { useTranslation } from 'react-i18next'
 import { LANGUAGES } from '../../enums/global.enum'
 import ToggleTheme from '../toggleTheme/ToggleTheme'
 import ReactLogo from '../../../assets/react.svg'
-import Login from '../login/login'
 
 function Subheader() {
   const { i18n } = useTranslation()
   const location = useLocation()
+  const navigate = useNavigate()
 
   // Obtener el idioma actual
   const currentLanguage = i18n.language
@@ -20,6 +20,14 @@ function Subheader() {
     const newLanguage =
       currentLanguage === LANGUAGES.EN_US ? LANGUAGES.ES_ES : LANGUAGES.EN_US
     i18n.changeLanguage(newLanguage)
+  }
+
+  const handleLogout = () => {
+    if (location.pathname !== '/') {
+      alert('You must log in')
+      sessionStorage.removeItem('user')
+      navigate('/login')
+    }
   }
 
   return (
@@ -40,6 +48,7 @@ function Subheader() {
         </div>
         <div>
           <Link to="/login">Login</Link>
+          <button onClick={handleLogout}>Log out</button>
         </div>
       </div>
     </div>

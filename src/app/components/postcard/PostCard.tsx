@@ -16,6 +16,10 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
   const dispatch = useDispatch()
 
   const handleDelete = (id: number) => {
+    const user = JSON.parse(sessionStorage.getItem('user')!)
+    if (!user) {
+      return alert('You must log in'), navigate('/login')
+    }
     dispatch(deletePost(id))
     alert(t('APP.FORM.DELETE.ALERT'))
   }

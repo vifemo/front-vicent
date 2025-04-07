@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Button from '../button/Button'
+import './login.css'
 
+//usuarios de prueba
 const users = [
   { username: 'admin', password: 'admin' },
   { username: 'user', password: 'user' },
@@ -29,10 +32,16 @@ function Login() {
     }
   }
 
+  const handleLogout = () => {
+    alert('Logged out')
+    sessionStorage.removeItem('user')
+  }
+
   return (
-    <div>
-      <form onSubmit={handleLogin}>
+    <div className="login-container">
+      <form className="login-container__form">
         <input
+          className="login-container__input"
           type="text"
           placeholder="User"
           value={userName}
@@ -42,6 +51,7 @@ function Login() {
           required
         />
         <input
+          className="login-container__input"
           type="text"
           placeholder="Password"
           value={password}
@@ -50,7 +60,22 @@ function Login() {
           }}
           required
         />
-        <button type="submit">Login</button>
+        <div className="login-container__button">
+          <Button
+            text="Log in"
+            onClick={(e: React.FormEvent) => {
+              handleLogin(e)
+            }}
+          />
+        </div>
+        <div className="login-container__button login-container__button-logout">
+          <Button
+            text="Log out"
+            onClick={() => {
+              handleLogout()
+            }}
+          ></Button>
+        </div>
       </form>
     </div>
   )

@@ -4,7 +4,7 @@ function ProtectedRoute({ children }: any) {
   const user = JSON.parse(sessionStorage.getItem('user')!)
 
   if (!user) {
-    return <Navigate to="/login" />
+    return alert('You must log in'), (<Navigate to="/login" />)
   }
 
   return children
