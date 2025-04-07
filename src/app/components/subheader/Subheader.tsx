@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Breadcrumbs from '../breadcrumbs/Breadcrumbs'
 import SearchPost from '../searchpost/SearchPost'
 import './subheader.css'
@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { LANGUAGES } from '../../enums/global.enum'
 import ToggleTheme from '../toggleTheme/ToggleTheme'
 import ReactLogo from '../../../assets/react.svg'
+import Login from '../login/login'
 
 function Subheader() {
   const { i18n } = useTranslation()
@@ -36,6 +37,9 @@ function Subheader() {
         </div>
         <div>
           <ToggleTheme />
+        </div>
+        <div>
+          <Link to="/login">Login</Link>
         </div>
       </div>
     </div>

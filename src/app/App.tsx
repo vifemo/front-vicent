@@ -11,6 +11,8 @@ import { fetchAllPosts } from './store/slices/slice'
 import { getPosts } from './services/postService'
 import { useEffect } from 'react'
 import AnalyticsPage from './pages/AnalyticsPage'
+import Login from './components/login/login'
+import ProtectedRoute from './components/login/ProtectedRoute'
 
 function App() {
   const { posts } = useSelector((state: RootState) => state.posts_reducer)
@@ -31,10 +33,19 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/posts" element={<PostPage />} />
-        <Route path="/create" element={<CreatePage />} />
+        <Route
+          path="/create"
+          element={
+            <ProtectedRoute>
+              {' '}
+              <CreatePage />{' '}
+            </ProtectedRoute>
+          }
+        />
         <Route path="/posts/:id" element={<PostDetails />} />
         <Route path="/edit/:id" element={<EditPage />} />
         <Route path="/analytics" element={<AnalyticsPage />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </>
   )
