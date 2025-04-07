@@ -10,12 +10,7 @@
 } */
 
 :root {
-  --background-gradient: linear-gradient(
-    0deg,
-    rgba(1, 0, 28, 1) 0%,
-    rgb(1, 41, 75) 30%,
-    rgba(2, 67, 142, 1) 56%
-  );
+  --background-gradient: radial-gradient(#280a48, #20043d);
   --text-color: white;
 }
 
@@ -55,7 +50,7 @@ body {
 }
 
 .subheader {
-  background-color: #333;
+  background-color: #16012c;
 }
 
 .light-mode .subheader {
@@ -63,7 +58,7 @@ body {
 }
 
 .header {
-  background-color: #333;
+  background-color: #16012c;
 }
 
 .light-mode .header {

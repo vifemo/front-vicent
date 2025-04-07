@@ -36,7 +36,6 @@ function AnalyticsPage() {
             mapData={mapPostsByUser}
             title={t('APP.ANALYTICS.USER.TITLE')}
             categories={t('APP.ANALYTICS.USER.CATEGORIES')}
-            legend={t('APP.ANALYTICS.USER.LEGEND')}
           />
         </div>
         <div className="home_highcharts">
@@ -45,7 +44,6 @@ function AnalyticsPage() {
             mapData={mapCommentsByPost}
             title={t('APP.ANALYTICS.COMMENTS.TITLE')}
             categories={t('APP.ANALYTICS.COMMENTS.CATEGORIES')}
-            legend={t('APP.ANALYTICS.COMMENTS.LEGEND')}
           />
         </div>
       </div>

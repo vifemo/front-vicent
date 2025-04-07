@@ -7,7 +7,6 @@ interface HighchartsCompProps<Generic> {
   mapData: (data: Generic[]) => { labels: string[]; values: number[] }
   title: string
   categories: string
-  legend: string
 }
 
 function HighchartsComp<Generic>({
@@ -15,7 +14,6 @@ function HighchartsComp<Generic>({
   mapData,
   title,
   categories,
-  legend,
 }: HighchartsCompProps<Generic>) {
   const [chartData, setChartData] = useState<{
     labels: string[]
