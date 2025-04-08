@@ -18,7 +18,6 @@ function AnalyticsPage() {
   useEffect(() => {
     const getCommenta = async () => {
       const data = await getComments()
-      console.log(data)
       setComments(data)
     }
     getCommenta()
