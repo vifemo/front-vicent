@@ -2,17 +2,12 @@ import Header from '../components/header/Header'
 import PostGallery from '../components/postgallery/PostGallery'
 import Subheader from '../components/subheader/Subheader'
 import '../../styles/pages/home.css'
-import { useEffect } from 'react'
-import { getComments } from '../services/commentsService'
+import HighchartsComp from '../components/highcharts/HighchartsComp'
+import { mapPostsByUser } from '../helper/mapPostsByUser'
+import { useSelector } from 'react-redux'
 
 function HomePage() {
-  useEffect(() => {
-    const getCommenta = async () => {
-      const data = await getComments()
-      console.log(data)
-    }
-    getCommenta()
-  }, [])
+  const { posts } = useSelector((state: RootState) => state.posts_reducer)
 
   return (
     <div>
@@ -22,7 +17,15 @@ function HomePage() {
         <div className="home__postgallery">
           <PostGallery numberOfItems={4} />
         </div>
-        <h1>Aquí las gráficas</h1>
+        <div className="home_highcharts">
+          <HighchartsComp
+            fetchDataFunction={() => posts}
+            mapData={mapPostsByUser}
+            title={'Posts by user'}
+            categories={'Users'}
+            legend={'Users'}
+          />
+        </div>
       </div>
     </div>
   )

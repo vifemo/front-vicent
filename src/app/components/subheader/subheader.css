@@ -27,7 +27,7 @@
 
 .subheader__item--language button {
   background-color: #fff;
-  font-size: 1.5vh;
+  font-size: 1.3vh;
   font-weight: bold;
   width: 5vh;
   height: 5vh;
@@ -42,4 +42,30 @@
   box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.274);
   background-color: rgba(2, 67, 142, 1);
   color: #fff;
+}
+
+.subheader__logo {
+  margin-left: 5vh;
+}
+
+.subheader__logo img {
+  width: 10vh;
+  height: 10vh;
+  padding: 0.5em;
+  will-change: filter;
+  transition: filter 300ms;
+  animation: logo-spin infinite 20s linear;
+}
+
+.subheader__logo img:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

@@ -21,6 +21,8 @@ function Breadcrumbs() {
               {index === paths.length - 1 ? (
                 path === 'create' ? (
                   t('APP.BREADCRUMBS.CREATE')
+                ) : path === 'analytics' ? (
+                  t('APP.BREADCRUMBS.ANALYTICS')
                 ) : (
                   path
                 )

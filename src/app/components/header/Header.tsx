@@ -24,6 +24,11 @@ function Header() {
               {t('APP.HEADER.CREATE')}
             </Link>
           </li>
+          <li>
+            <Link className="link" to="/analytics">
+              {t('APP.HEADER.ANLYTICS')}
+            </Link>
+          </li>
         </ul>
       </nav>
     </div>
