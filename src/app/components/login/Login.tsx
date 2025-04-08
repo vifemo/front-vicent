@@ -44,6 +44,7 @@ function Login() {
     <div className="login-container">
       <form className="login-container__form">
         <input
+          data-cy="username"
           className="login-container__input"
           type="text"
           placeholder={t('APP.LOGIN.USER.PLACEHOLDER')}
@@ -54,6 +55,7 @@ function Login() {
           required
         />
         <input
+          data-cy="password"
           className="login-container__input"
           type="text"
           placeholder={t('APP.LOGIN.PASSWORD.PLACEHOLDER')}

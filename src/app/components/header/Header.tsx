@@ -10,12 +10,12 @@ function Header() {
       <nav className="nav">
         <ul className="link-list">
           <li>
-            <Link className="link" to="/" data-testid="testtest">
+            <Link className="link" to="/">
               {t('APP.HEADER.HOME')}
             </Link>
           </li>
           <li>
-            <Link className="link" to="/posts">
+            <Link className="link" to="/posts" data-cy="posts">
               {t('APP.HEADER.POSTS')}
             </Link>
           </li>
