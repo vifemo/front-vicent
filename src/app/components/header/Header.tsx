@@ -10,7 +10,7 @@ function Header() {
       <nav className="nav">
         <ul className="link-list">
           <li>
-            <Link className="link" to="/">
+            <Link className="link" to="/" data-testid="testtest">
               {t('APP.HEADER.HOME')}
             </Link>
           </li>

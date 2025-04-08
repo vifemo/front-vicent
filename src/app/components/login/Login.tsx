@@ -16,7 +16,7 @@ function Login() {
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
 
-  const handleLogin = (e) => {
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
 
     const user = users.find(
