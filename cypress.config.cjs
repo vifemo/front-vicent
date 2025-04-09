@@ -21,7 +21,7 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     excludeSpecPattern: '**/examples/**/*.spec.js',
-    specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
+    specPattern: 'cypress/e2e/**/*.{cy,spec}.{js,jsx,ts,tsx}',
     testIsolation: false,
     video: false,
     baseUrl: 'http://localhost:5173/',

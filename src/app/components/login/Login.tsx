@@ -42,6 +42,7 @@ function Login() {
 
   return (
     <div className="login-container">
+      <h1>Login form</h1>
       <form className="login-container__form">
         <input
           data-cy="username"
