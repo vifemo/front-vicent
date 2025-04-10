@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Breadcrumbs from '../breadcrumbs/Breadcrumbs'
 import SearchPost from '../searchpost/SearchPost'
 import './subheader.css'
@@ -10,11 +10,10 @@ import ReactLogo from '../../../assets/react.svg'
 function Subheader() {
   const { i18n } = useTranslation()
   const location = useLocation()
+  const user = JSON.parse(sessionStorage.getItem('user')!)
 
-  // Obtener el idioma actual
   const currentLanguage = i18n.language
 
-  // Función para cambiar el idioma
   const toggleLanguage = () => {
     const newLanguage =
       currentLanguage === LANGUAGES.EN_US ? LANGUAGES.ES_ES : LANGUAGES.EN_US
@@ -36,6 +35,12 @@ function Subheader() {
         </div>
         <div>
           <ToggleTheme />
+        </div>
+        <div className="subheader__item--login">
+          <Link to="/login" className="subheader__item--loginLink">
+            Login
+          </Link>
+          {user && <p>{user.username}</p>}
         </div>
       </div>
     </div>

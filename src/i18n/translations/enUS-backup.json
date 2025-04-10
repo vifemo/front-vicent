@@ -34,5 +34,10 @@
   "APP.ANALYTICS.COMMENTS.TITLE": "Comments by post",
   "APP.ANALYTICS.USER.CATEGORIES": "Users",
   "APP.ANALYTICS.COMMENTS.CATEGORIES": "Comments",
-  "APP.ANALYTICS.USER.LEGEND": "Users"
+  "APP.ANALYTICS.USER.LEGEND": "Users",
+  "APP.LOGIN.MESSAGE": "You must log in",
+  "APP.LOGIN.EROR": "Incorrect login",
+  "APP.LOGOUT.MESSAGE": "You are logged out",
+  "APP.LOGIN.USER.PLACEHOLDER": "User",
+  "APP.LOGIN.PASSWORD.PLACEHOLDER": "Password"
 }

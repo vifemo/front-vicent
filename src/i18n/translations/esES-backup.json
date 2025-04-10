@@ -34,5 +34,10 @@
   "APP.ANALYTICS.COMMENTS.TITLE": "Comentarios por post",
   "APP.ANALYTICS.USER.CATEGORIES": "Usuarios",
   "APP.ANALYTICS.COMMENTS.CATEGORIES": "Comentarios",
-  "APP.ANALYTICS.USER.LEGEND": "Usuarios"
+  "APP.ANALYTICS.USER.LEGEND": "Usuarios",
+  "APP.LOGIN.MESSAGE": "Debes iniciar sesión",
+  "APP.LOGIN.EROR": "Login incorrecto",
+  "APP.LOGOUT.MESSAGE": "Has cerrado sesión",
+  "APP.LOGIN.USER.PLACEHOLDER": "Usuario",
+  "APP.LOGIN.PASSWORD.PLACEHOLDER": "Contraseña"
 }
