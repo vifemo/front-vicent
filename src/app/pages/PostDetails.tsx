@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux'
 import { deletePost } from '../store/slices/slice'
 import Button from '../components/button/Button'
 import { useTranslation } from 'react-i18next'
+import Swal from 'sweetalert2'
 
 function PostDetails() {
   const { t } = useTranslation()
@@ -19,7 +20,7 @@ function PostDetails() {
 
   const handleDelete = (id: number) => {
     dispatch(deletePost(id))
-    alert(t('APP.FORM.DELETE.ALERT'))
+    Swal.fire(t('APP.FORM.DELETE.ALERT'))
     return navigate(`/posts`)
   }
 

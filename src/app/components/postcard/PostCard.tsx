@@ -5,6 +5,7 @@ import Button from '../button/Button'
 import { useDispatch } from 'react-redux'
 import { deletePost } from '../../store/slices/slice'
 import { useTranslation } from 'react-i18next'
+import Swal from 'sweetalert2'
 
 interface PostCardProps {
   post: Post
@@ -18,10 +19,10 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
   const handleDelete = (id: number) => {
     const user = JSON.parse(sessionStorage.getItem('user')!)
     if (!user) {
-      return alert(t('APP.LOGIN.MESSAGE')), navigate('/login')
+      return Swal.fire(t('APP.LOGIN.MESSAGE')), navigate('/login')
     }
     dispatch(deletePost(id))
-    alert(t('APP.FORM.DELETE.ALERT'))
+    Swal.fire(t('APP.FORM.DELETE.ALERT'))
   }
 
   const goToEdit = (id: number) => {

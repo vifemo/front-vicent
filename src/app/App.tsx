@@ -13,6 +13,7 @@ import { useEffect } from 'react'
 import AnalyticsPage from './pages/AnalyticsPage'
 import ProtectedRoute from './components/login/ProtectedRoute'
 import LoginPage from './pages/LoginPage'
+import ScrollToTop from './pages/ScrollToTop'
 
 function App() {
   const { posts } = useSelector((state: RootState) => state.posts_reducer)
@@ -30,6 +31,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route

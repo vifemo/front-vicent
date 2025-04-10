@@ -98,3 +98,32 @@
     transform: rotate(360deg);
   }
 }
+
+.subheader__logo h1 {
+  width: 10vh;
+  height: 10vh;
+  padding: 0.5em;
+  padding-bottom: 0;
+  will-change: filter;
+  transition: filter 300ms;
+  animation: logo-breath infinite 5s linear;
+}
+
+.subheader__logo h1:hover {
+  text-shadow: -4px 6px 45px #646cffaa;
+}
+
+@keyframes logo-breath {
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

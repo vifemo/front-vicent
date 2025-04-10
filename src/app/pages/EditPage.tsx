@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux'
 import '../../styles/pages/formpage.css'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import Swal from 'sweetalert2'
 
 function EditPage() {
   const { t } = useTranslation()
@@ -20,7 +21,7 @@ function EditPage() {
   const handleUpdateSubmit = (post: Post) => {
     try {
       dispatch(editPost({ id: post.id, updatedPost: post }))
-      alert(t('APP.FORM.EDIT.ALERT'))
+      Swal.fire(t('APP.FORM.EDIT.ALERT'))
       setError(null)
       return navigate(`/posts`)
     } catch (error) {

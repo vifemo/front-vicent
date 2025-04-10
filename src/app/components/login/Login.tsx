@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Button from '../button/Button'
 import './login.css'
 import { useTranslation } from 'react-i18next'
+import Swal from 'sweetalert2'
 
 //usuarios de prueba
 const users = [
@@ -16,7 +17,7 @@ function Login() {
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
 
-  const handleLogin = (e) => {
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
 
     const user = users.find(
@@ -30,12 +31,12 @@ function Login() {
       )
       navigate('/')
     } else {
-      alert(t('APP.LOGIN.EROR'))
+      Swal.fire(t('APP.LOGIN.EROR'))
     }
   }
 
   const handleLogout = () => {
-    alert(t('APP.LOGOUT.MESSAGE'))
+    Swal.fire(t('APP.LOGOUT.MESSAGE'))
     sessionStorage.removeItem('user')
     navigate('/')
   }

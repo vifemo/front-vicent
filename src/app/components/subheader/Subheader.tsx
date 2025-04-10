@@ -23,7 +23,8 @@ function Subheader() {
   return (
     <div className="subheader">
       <div className="subheader__logo">
-        <img src={ReactLogo} alt="" />
+        <h1>Logotype</h1>
+        {/* <img src={ReactLogo} alt="" /> */}
       </div>
       <div className="subheader__item">
         {location.pathname !== '/' && <Breadcrumbs />}

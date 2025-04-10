@@ -8,6 +8,7 @@ import { addPost } from '../store/slices/slice'
 import '../../styles/pages/formpage.css'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import Swal from 'sweetalert2'
 
 function CreatePage() {
   const { t } = useTranslation()
@@ -18,7 +19,7 @@ function CreatePage() {
   const handleCreateSubmit = (post: Post) => {
     try {
       dispatch(addPost(post))
-      alert(t('APP.FORM.CREATE.ALERT'))
+      Swal.fire(t('APP.FORM.CREATE.ALERT'))
       setError(null)
       return navigate(`/posts`)
     } catch (error) {
