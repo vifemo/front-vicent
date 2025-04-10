@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 export type Post = {
   id: number
   title: string
@@ -21,4 +23,8 @@ export type TranslationType = {
 export type I18nType = {
   language: string
   values: TranslationType[]
+}
+
+export type ProtectedRouteProps = {
+  children: ReactNode
 }

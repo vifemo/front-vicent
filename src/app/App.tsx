@@ -36,8 +36,7 @@ function App() {
           path="/posts"
           element={
             <ProtectedRoute>
-              {' '}
-              <PostPage />{' '}
+              <PostPage />
             </ProtectedRoute>
           }
         />
@@ -45,8 +44,7 @@ function App() {
           path="/create"
           element={
             <ProtectedRoute>
-              {' '}
-              <CreatePage />{' '}
+              <CreatePage />
             </ProtectedRoute>
           }
         />
@@ -54,8 +52,7 @@ function App() {
           path="/posts/:id"
           element={
             <ProtectedRoute>
-              {' '}
-              <PostDetails />{' '}
+              <PostDetails />
             </ProtectedRoute>
           }
         />
@@ -63,8 +60,7 @@ function App() {
           path="/edit/:id"
           element={
             <ProtectedRoute>
-              {' '}
-              <EditPage />{' '}
+              <EditPage />
             </ProtectedRoute>
           }
         />
@@ -72,8 +68,7 @@ function App() {
           path="analytics"
           element={
             <ProtectedRoute>
-              {' '}
-              <AnalyticsPage />{' '}
+              <AnalyticsPage />
             </ProtectedRoute>
           }
         />
