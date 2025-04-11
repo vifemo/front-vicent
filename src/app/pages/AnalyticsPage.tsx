@@ -13,15 +13,7 @@ import { useTranslation } from 'react-i18next'
 function AnalyticsPage() {
   const { t } = useTranslation()
   const { posts } = useSelector((state: RootState) => state.posts_reducer)
-  const [comments, setComments] = useState<Comment[]>([])
-
-  useEffect(() => {
-    const getCommenta = async () => {
-      const data = await getComments()
-      setComments(data)
-    }
-    getCommenta()
-  }, [])
+  const { comments } = useSelector((state: ComState) => state.comments_reducer)
 
   return (
     <div>

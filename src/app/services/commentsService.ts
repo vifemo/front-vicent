@@ -1,7 +1,8 @@
 import axios from 'axios'
 import { Comment } from '../types/types'
 
-export const API_URL = 'https://jsonplaceholder.typicode.com/comments/'
+export const API_URL =
+  'https://67f8d45f2466325443edfa45.mockapi.io/comments_api/comments'
 
 export const getComments = async (): Promise<Comment[]> => {
   try {

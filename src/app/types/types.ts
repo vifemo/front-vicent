@@ -8,6 +8,7 @@ export type Post = {
 }
 
 export type Comment = {
+  userId: number
   postId: number
   id: number
   name: string

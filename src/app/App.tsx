@@ -6,7 +6,7 @@ import CreatePage from './pages/CreatePage'
 import PostDetails from './pages/PostDetails'
 import EditPage from './pages/EditPage'
 import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from './store/store'
+import { RootState, ComState } from './store/store'
 import { fetchAllPosts } from './store/slices/slice'
 import { getPosts } from './services/postService'
 import { useEffect } from 'react'
@@ -14,6 +14,8 @@ import AnalyticsPage from './pages/AnalyticsPage'
 import ProtectedRoute from './components/login/ProtectedRoute'
 import LoginPage from './pages/LoginPage'
 import ScrollToTop from './pages/ScrollToTop'
+import { getComments } from './services/commentsService'
+import { fetchAllComments } from './store/slices/commentsSlice'
 
 function App() {
   const { posts } = useSelector((state: RootState) => state.posts_reducer)
@@ -28,6 +30,14 @@ function App() {
       fetchPosts()
     }
   }, [dispatch, posts.length])
+
+  useEffect(() => {
+    const getCommenta = async () => {
+      const commentsData = await getComments()
+      dispatch(fetchAllComments(commentsData))
+    }
+    getCommenta()
+  }, [dispatch])
 
   return (
     <>
