@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux'
 import HighchartsComp from '../components/highcharts/HighchartsComp'
-import { mapCommentsByPost } from '../helper/mapCommentsByPost'
+import {
+  mapCommentsByPost,
+  mapCommentsByUser,
+} from '../helper/mapCommentsByPost'
 import { mapPostsByUser } from '../helper/mapPostsByUser'
-import { useEffect, useState } from 'react'
-import { getComments } from '../services/commentsService'
-import { Comment } from '../types/types'
 import Header from '../components/header/Header'
 import Subheader from '../components/subheader/Subheader'
 import '../../styles/pages/analyticspage.css'
@@ -34,6 +34,14 @@ function AnalyticsPage() {
             fetchDataFunction={() => comments}
             mapData={mapCommentsByPost}
             title={t('APP.ANALYTICS.COMMENTS.TITLE')}
+            categories={t('APP.ANALYTICS.COMMENTS.CATEGORIES')}
+          />
+        </div>
+        <div className="home_highcharts">
+          <HighchartsComp
+            fetchDataFunction={() => comments}
+            mapData={mapCommentsByUser}
+            title={t('APP.ANALYTICS.COMMENTS-USER.TITLE')}
             categories={t('APP.ANALYTICS.COMMENTS.CATEGORIES')}
           />
         </div>

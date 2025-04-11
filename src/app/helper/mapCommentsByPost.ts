@@ -16,3 +16,16 @@ export const mapCommentsByPost = (comments: Comment[]) => {
     values: Object.values(postCommentCount),
   }
 }
+
+export const mapCommentsByUser = (comments: Comment[]) => {
+  const postCommentCount: Record<number, number> = {}
+  comments.forEach((comment) => {
+    postCommentCount[comment.userId] =
+      (postCommentCount[comment.userId] || 0) + 1
+  })
+
+  return {
+    labels: Object.keys(postCommentCount),
+    values: Object.values(postCommentCount),
+  }
+}

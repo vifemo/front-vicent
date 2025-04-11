@@ -6,7 +6,7 @@ import CreatePage from './pages/CreatePage'
 import PostDetails from './pages/PostDetails'
 import EditPage from './pages/EditPage'
 import { useDispatch, useSelector } from 'react-redux'
-import { RootState, ComState } from './store/store'
+import { RootState } from './store/store'
 import { fetchAllPosts } from './store/slices/slice'
 import { getPosts } from './services/postService'
 import { useEffect } from 'react'
@@ -37,7 +37,7 @@ function App() {
       dispatch(fetchAllComments(commentsData))
     }
     getCommenta()
-  }, [dispatch])
+  }, [])
 
   return (
     <>

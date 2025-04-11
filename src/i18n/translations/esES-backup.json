@@ -35,6 +35,7 @@
   "APP.ANALYTICS.USER.CATEGORIES": "Usuarios",
   "APP.ANALYTICS.COMMENTS.CATEGORIES": "Comentarios",
   "APP.ANALYTICS.USER.LEGEND": "Usuarios",
+  "APP.ANALYTICS.COMMENTS-USER.TITLE": "Comentarios por usuario",
   "APP.LOGIN.MESSAGE": "Debes iniciar sesión",
   "APP.LOGIN.EROR": "Login incorrecto",
   "APP.LOGOUT.MESSAGE": "Has cerrado sesión",

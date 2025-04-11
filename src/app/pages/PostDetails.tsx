@@ -4,15 +4,18 @@ import { Post } from '../types/types'
 import useFetchPost from '../hooks/useFetchPost'
 import Subheader from '../components/subheader/Subheader'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { deletePost } from '../store/slices/slice'
 import Button from '../components/button/Button'
 import { useTranslation } from 'react-i18next'
 import Swal from 'sweetalert2'
+import CommentCard from '../components/commentscard/CommentCard'
+import { Comment } from '../types/types'
 
 function PostDetails() {
   const { t } = useTranslation()
 
+  const { comments } = useSelector((state: RootState) => state.comments_reducer)
   const post = useFetchPost()
 
   const navigate = useNavigate()
@@ -52,12 +55,24 @@ function PostDetails() {
     )
   }
 
+  const printComment = () => {
+    if (!post) return null
+
+    const filteredComments = comments.filter(
+      (comment: Comment) => comment.postId === post.id
+    )
+
+    return filteredComments.map((comment: Comment) => (
+      <CommentCard key={comment.id} comment={comment} postId={post.id} />
+    ))
+  }
   return (
     <>
       <Header />
       <Subheader />
       <div className="post-details-container">
         <div>{printDetails(post)}</div>
+        <div>{printComment()}</div>
       </div>
     </>
   )
