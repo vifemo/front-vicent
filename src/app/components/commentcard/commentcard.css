@@ -1,0 +1,17 @@
+.commentcard {
+  background-color: white;
+  color: black;
+  max-width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5vh;
+  margin-left: 33%;
+  padding: 2vh;
+  border-radius: 5%;
+}
+
+.commentcard p {
+  background-color: rgb(218, 218, 218);
+  padding: 1vh;
+}

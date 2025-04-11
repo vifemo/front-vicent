@@ -9,8 +9,9 @@ import { deletePost } from '../store/slices/slice'
 import Button from '../components/button/Button'
 import { useTranslation } from 'react-i18next'
 import Swal from 'sweetalert2'
-import CommentCard from '../components/commentscard/CommentCard'
+import CommentCard from '../components/commentcard/CommentCard'
 import { Comment } from '../types/types'
+import Commentform from '../components/commentform/Commentform'
 
 function PostDetails() {
   const { t } = useTranslation()
@@ -63,7 +64,7 @@ function PostDetails() {
     )
 
     return filteredComments.map((comment: Comment) => (
-      <CommentCard key={comment.id} comment={comment} postId={post.id} />
+      <CommentCard key={comment.id} comment={comment} />
     ))
   }
   return (
@@ -72,6 +73,7 @@ function PostDetails() {
       <Subheader />
       <div className="post-details-container">
         <div>{printDetails(post)}</div>
+        <div>{post && <Commentform postId={post.id} />}</div>
         <div>{printComment()}</div>
       </div>
     </>

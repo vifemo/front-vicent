@@ -1,22 +1,20 @@
 .post-details-container {
   max-width: 90%;
-  margin-top: 10%;
+
   margin-left: 15%;
 }
 
 .post-details {
   margin: 20%;
-  margin-top: 50px;
+
+  margin-bottom: 15vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: white;
   padding: 50px;
-  border-radius: 2%;
-}
-
-.post-details__title {
+  border-radius: 5%;
 }
 
 .post-details__userid {

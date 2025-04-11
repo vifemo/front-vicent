@@ -1,0 +1,5 @@
+.commentform-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 28%;
+}

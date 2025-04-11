@@ -2,7 +2,9 @@
   margin-top: 200px;
   margin-left: 10%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .login-container__form {

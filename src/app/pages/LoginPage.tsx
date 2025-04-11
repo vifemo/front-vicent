@@ -1,5 +1,5 @@
 import Header from '../components/header/Header'
-import Login from '../components/login/login'
+import Login from '../components/login/Login'
 import Subheader from '../components/subheader/Subheader'
 
 function LoginPage() {
