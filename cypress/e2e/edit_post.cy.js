@@ -12,5 +12,7 @@ describe('Edit post', () => {
     cy.get('.button').eq(1).click()
     cy.get('#title').click().clear()
     cy.get('#title').click().type('Post Edited')
+
+    cy.get('#title').should('have.value', 'Post Edited')
   })
 })

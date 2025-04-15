@@ -11,5 +11,8 @@ describe('Create post', () => {
     cy.get('#title').click().type('Create new test post title')
     cy.get('#content').click().type('Create new test post body')
     cy.get('.form-container__button').click()
+    cy.get('.search-container')
+      .type('Create new test post title')
+      .should('have.text', 'Create new test post title')
   })
 })
