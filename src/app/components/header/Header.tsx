@@ -15,12 +15,12 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link className="link" to="/posts">
+            <Link className="link" to="/posts" data-cy="posts">
               {t('APP.HEADER.POSTS')}
             </Link>
           </li>
           <li>
-            <Link className="link" to="/create">
+            <Link className="link" to="/create" data-cy="create">
               {t('APP.HEADER.CREATE')}
             </Link>
           </li>

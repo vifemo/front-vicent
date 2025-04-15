@@ -16,7 +16,7 @@ function Login() {
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
 
-  const handleLogin = (e) => {
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
 
     const user = users.find(
@@ -42,8 +42,10 @@ function Login() {
 
   return (
     <div className="login-container">
+      <h1>Login form</h1>
       <form className="login-container__form">
         <input
+          data-cy="username"
           className="login-container__input"
           type="text"
           placeholder={t('APP.LOGIN.USER.PLACEHOLDER')}
@@ -54,6 +56,7 @@ function Login() {
           required
         />
         <input
+          data-cy="password"
           className="login-container__input"
           type="text"
           placeholder={t('APP.LOGIN.PASSWORD.PLACEHOLDER')}

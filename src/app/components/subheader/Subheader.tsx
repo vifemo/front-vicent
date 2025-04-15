@@ -33,14 +33,14 @@ function Subheader() {
             {currentLanguage}
           </button>
         </div>
-        <div>
+        <div className="subheader__item--theme">
           <ToggleTheme />
         </div>
         <div className="subheader__item--login">
           <Link to="/login" className="subheader__item--loginLink">
             Login
           </Link>
-          {user && <p>{user.username}</p>}
+          {user && <p>👤{user.username}</p>}
         </div>
       </div>
     </div>
