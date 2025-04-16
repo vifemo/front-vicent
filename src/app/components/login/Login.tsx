@@ -43,9 +43,14 @@ function Login() {
 
   return (
     <div className="login-container">
+<<<<<<< HEAD
       <h1>Login</h1>
+=======
+      <h1>Login form</h1>
+>>>>>>> 69c675b46b20b7ff0ac2d35b6c5fbe4b528b2533
       <form className="login-container__form">
         <input
+          data-cy="username"
           className="login-container__input"
           type="text"
           placeholder={t('APP.LOGIN.USER.PLACEHOLDER')}
@@ -56,6 +61,7 @@ function Login() {
           required
         />
         <input
+          data-cy="password"
           className="login-container__input"
           type="text"
           placeholder={t('APP.LOGIN.PASSWORD.PLACEHOLDER')}
