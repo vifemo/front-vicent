@@ -23,7 +23,7 @@
     "react-router-dom": "^7.3.0",
     "redux": "^5.0.1",
     "redux-thunk": "^3.1.0",
-    "sweetalert2": "^11.17.2"
+    "sweetalert2": "^11.18.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

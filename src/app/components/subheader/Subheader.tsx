@@ -5,7 +5,6 @@ import './subheader.css'
 import { useTranslation } from 'react-i18next'
 import { LANGUAGES } from '../../enums/global.enum'
 import ToggleTheme from '../toggleTheme/ToggleTheme'
-import ReactLogo from '../../../assets/react.svg'
 
 function Subheader() {
   const { i18n } = useTranslation()
