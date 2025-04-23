@@ -14,16 +14,19 @@ interface PostFormProps {
 function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
   const { t } = useTranslation()
   const newPostId = useFakeId()
+
+  // Estado del post
   const [post, setPost] = useState<Post>({
     id: initialPost?.id || newPostId,
     title: initialPost?.title || '',
     body: initialPost?.body || '',
-    //genera un userId de prueba
-    userId: initialPost?.userId || newPostId - 90,
+    userId: initialPost?.userId || null, // inicializado como null
   })
+
   const [titleError, setTitleError] = useState('')
   const [bodyError, setBodyError] = useState('')
 
+  // Si cambia el initialPost, actualizar el formulario
   useEffect(() => {
     if (initialPost) {
       setPost(initialPost)
@@ -32,15 +35,30 @@ function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+
     if (!post.title.trim()) {
       setTitleError(t('APP.FORM.TITLE.ERROR'))
     }
     if (!post.body.trim()) {
       setBodyError(t('APP.FORM.CONTENT.ERROR'))
     }
+
     if (!titleError && !bodyError && post.title.trim() && post.body.trim()) {
-      console.log(post)
-      onSubmit(post)
+      const storedUser = sessionStorage.getItem('user')
+      if (!storedUser) {
+        alert('No hay sesión activa')
+        return
+      }
+      const currentUser = JSON.parse(storedUser)
+      const currentUserId = currentUser.id
+
+      const postToSubmit = {
+        ...post,
+        userId: currentUserId,
+      }
+
+      console.log(postToSubmit)
+      onSubmit(postToSubmit)
     }
   }
 
@@ -79,6 +97,7 @@ function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
           className="form-container__input"
         />
         {titleError && <p style={{ color: 'red' }}>{titleError}</p>}
+
         <label htmlFor="content" className="form-container__label">
           {t('APP.FORM.CONTENT')}
         </label>
@@ -90,6 +109,7 @@ function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
           className="form-container__textarea"
         ></textarea>
         {bodyError && <p style={{ color: 'red' }}>{bodyError}</p>}
+
         <div className="form-container__button">
           <Button
             text={buttonText}

@@ -1,33 +1,44 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Button from '../button/Button'
 import './login.css'
 import { useTranslation } from 'react-i18next'
 import Swal from 'sweetalert2'
+import { getUsers } from '../../services/usersService'
+import { User } from '../../types/types'
 
-//usuarios de prueba
-const users = [
-  { username: 'admin', password: 'admin' },
-  { username: 'user', password: 'user' },
-]
+// //usuarios de prueba
+// const users = [
+//   { username: 'admin', password: 'admin' },
+//   { username: 'user', password: 'user' },
+// ]
 
 function Login() {
   const { t } = useTranslation()
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
+  const [users, setUsers] = useState<User[]>([])
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const getAllUsers = async () => {
+      const response = await getUsers()
+      setUsers(response)
+    }
+    getAllUsers()
+  }, [])
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
 
     const user = users.find(
-      (u) => u.username == userName && u.password === password
+      (u) => u.userName == userName && u.password === password
     )
 
     if (user) {
       sessionStorage.setItem(
         'user',
-        JSON.stringify({ username: user.username })
+        JSON.stringify({ username: user.userName, id: user.id })
       )
       navigate('/')
     } else {
@@ -43,11 +54,7 @@ function Login() {
 
   return (
     <div className="login-container">
-<<<<<<< HEAD
-      <h1>Login</h1>
-=======
       <h1>Login form</h1>
->>>>>>> 69c675b46b20b7ff0ac2d35b6c5fbe4b528b2533
       <form className="login-container__form">
         <input
           data-cy="username"

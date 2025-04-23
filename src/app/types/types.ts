@@ -4,7 +4,7 @@ export type Post = {
   id: number
   title: string
   body: string
-  userId: number
+  userId: number | null
 }
 
 export type Comment = {
@@ -12,8 +12,13 @@ export type Comment = {
   postId: number
   id: number
   name: string
-  email: string
-  body: string
+  comment: string
+}
+
+export type User = {
+  id: number
+  userName: string
+  password: string
 }
 
 export type TranslationType = {

@@ -23,8 +23,7 @@ function Commentform({ postId }: CommentFormProp) {
     postId: postId,
     userId: fakeUserId,
     name: '',
-    email: '',
-    body: '',
+    comment: '',
   })
 
   const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,19 +31,14 @@ function Commentform({ postId }: CommentFormProp) {
     setComment({ ...comment, name: newName })
   }
 
-  const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newEmail = e.target.value
-    setComment({ ...comment, email: newEmail })
-  }
-
   const handleBody = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newBody = e.target.value
-    setComment({ ...comment, body: newBody })
+    setComment({ ...comment, comment: newBody })
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (comment.name.trim() && comment.body.trim() && comment.email.trim()) {
+    if (comment.name.trim() && comment.comment.trim()) {
       console.log(comment)
       dispatch(addComment(comment))
     }
@@ -53,11 +47,7 @@ function Commentform({ postId }: CommentFormProp) {
   return (
     <div className="commentform-container">
       <form action="" className="form-container no-theme">
-        <label
-          htmlFor="name"
-          commentform-container
-          className="form-container__label"
-        >
+        <label htmlFor="name" className="form-container__label">
           Name:
         </label>
         <input
@@ -68,23 +58,13 @@ function Commentform({ postId }: CommentFormProp) {
           onChange={handleName}
           className="form-container__input"
         />
-        <label htmlFor="email" className="form-container__label">
-          Email:
-        </label>
-        <input
-          type="text"
-          id="email"
-          value={comment.email}
-          placeholder="Email"
-          onChange={handleEmail}
-          className="form-container__input"
-        />
-        <label htmlFor="body" className="form-container__label">
+
+        <label htmlFor="comment" className="form-container__label">
           Comment:
         </label>
         <textarea
           id="body"
-          value={comment.body}
+          value={comment.comment}
           placeholder="Comment here..."
           onChange={handleBody}
           className="form-container__textarea"

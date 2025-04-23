@@ -9,9 +9,8 @@ interface CommentsCardProps {
 const CommentCard: React.FC<CommentsCardProps> = ({ comment }) => {
   return (
     <div className="commentcard">
-      <h3>{comment.name}</h3>
-      <h4>{comment.email}</h4>
-      <p>{comment.body}</p>
+      <h3>{comment.userId}</h3>
+      <p>{comment.comment}</p>
     </div>
   )
 }

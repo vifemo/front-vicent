@@ -10,6 +10,7 @@ export const mapCommentsByPost = (comments: Comment[]) => {
     postCommentCount[comment.postId] =
       (postCommentCount[comment.postId] || 0) + 1
   })
+  console.log('hj', postCommentCount)
 
   return {
     labels: Object.keys(postCommentCount),
