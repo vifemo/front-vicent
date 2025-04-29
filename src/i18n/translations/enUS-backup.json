@@ -40,5 +40,8 @@
   "APP.LOGIN.EROR": "Incorrect login",
   "APP.LOGOUT.MESSAGE": "You are logged out",
   "APP.LOGIN.USER.PLACEHOLDER": "User",
-  "APP.LOGIN.PASSWORD.PLACEHOLDER": "Password"
+  "APP.LOGIN.PASSWORD.PLACEHOLDER": "Password",
+  "APP.COMMENT.FORM.TITLE": "Comment:",
+  "APP.COMMENT.FORM.BODY": "Type a comment...",
+  "APP.COMMENT.FORM.BUTTON": "Send comment"
 }

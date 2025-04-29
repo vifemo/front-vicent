@@ -5,9 +5,22 @@ import '../../styles/pages/home.css'
 import HighchartsComp from '../components/highcharts/HighchartsComp'
 import { mapPostsByUser } from '../helper/mapPostsByUser'
 import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
+import { User } from '../types/types'
 
 function HomePage() {
+  const { t } = useTranslation()
   const { posts } = useSelector((state: RootState) => state.posts_reducer)
+  const { users } = useSelector((state: UserState) => state.users_reducer)
+
+  const postsByUser = mapPostsByUser(posts)
+
+  const postsByUserWithName = {
+    labels: postsByUser.labels.map((userId) => {
+      const user = users.find((u: User) => u.id === Number(userId))
+      return user ? user.userName : `User ${userId}`
+    }),
+  }
 
   return (
     <div>
@@ -19,11 +32,10 @@ function HomePage() {
         </div>
         <div className="home_highcharts">
           <HighchartsComp
-            fetchDataFunction={() => posts}
-            mapData={mapPostsByUser}
-            title={'Posts by user'}
-            categories={'Users'}
-            legend={'Users'}
+            labels={postsByUserWithName.labels}
+            values={postsByUser.values}
+            title={t('APP.ANALYTICS.USER.TITLE')}
+            categories={t('APP.ANALYTICS.USER.CATEGORIES')}
           />
         </div>
       </div>

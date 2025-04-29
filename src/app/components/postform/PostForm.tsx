@@ -2,7 +2,7 @@ import Button from '../button/Button'
 import './postform.css'
 import { useState, useEffect } from 'react'
 import { Post } from '../../types/types'
-import { useFakeId } from '../../helper/idHelper'
+
 import { useTranslation } from 'react-i18next'
 
 interface PostFormProps {
@@ -13,20 +13,16 @@ interface PostFormProps {
 
 function PostForm({ initialPost, onSubmit, buttonText }: PostFormProps) {
   const { t } = useTranslation()
-  const newPostId = useFakeId()
 
-  // Estado del post
   const [post, setPost] = useState<Post>({
-    id: initialPost?.id || newPostId,
     title: initialPost?.title || '',
     body: initialPost?.body || '',
-    userId: initialPost?.userId || null, // inicializado como null
+    userId: initialPost?.userId || null,
   })
 
   const [titleError, setTitleError] = useState('')
   const [bodyError, setBodyError] = useState('')
 
-  // Si cambia el initialPost, actualizar el formulario
   useEffect(() => {
     if (initialPost) {
       setPost(initialPost)

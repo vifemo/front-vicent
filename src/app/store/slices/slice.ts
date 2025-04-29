@@ -17,7 +17,11 @@ const postSlice = createSlice({
       return { posts: action.payload }
     },
     addPost(state, action) {
-      return { posts: [...state.posts, action.payload] }
+      const maxId = state.posts.length
+        ? Math.max(...state.posts.map((p) => p.id || 0))
+        : 0
+      const postWithId = { ...action.payload, id: maxId + 1 }
+      return { posts: [...state.posts, postWithId] }
     },
     editPost(state, action) {
       return {

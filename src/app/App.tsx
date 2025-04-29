@@ -16,6 +16,8 @@ import LoginPage from './pages/LoginPage'
 import ScrollToTop from './pages/ScrollToTop'
 import { getComments } from './services/commentsService'
 import { fetchAllComments } from './store/slices/commentsSlice'
+import { fetchAllUsers } from './store/slices/usersSlice'
+import { getUsers } from './services/usersService'
 
 function App() {
   const { posts } = useSelector((state: RootState) => state.posts_reducer)
@@ -37,6 +39,14 @@ function App() {
       dispatch(fetchAllComments(commentsData))
     }
     getCommenta()
+  }, [])
+
+  useEffect(() => {
+    const getAllUsers = async () => {
+      const usersData = await getUsers()
+      dispatch(fetchAllUsers(usersData))
+    }
+    getAllUsers()
   }, [])
 
   return (

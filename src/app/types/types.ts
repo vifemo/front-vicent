@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 
 export type Post = {
-  id: number
+  id?: number
   title: string
   body: string
   userId: number | null
@@ -10,9 +10,9 @@ export type Post = {
 export type Comment = {
   userId: number
   postId: number
-  id: number
+  id?: number
   name: string
-  comment: string
+  body: string
 }
 
 export type User = {

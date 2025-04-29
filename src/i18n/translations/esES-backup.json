@@ -40,5 +40,8 @@
   "APP.LOGIN.EROR": "Login incorrecto",
   "APP.LOGOUT.MESSAGE": "Has cerrado sesión",
   "APP.LOGIN.USER.PLACEHOLDER": "Usuario",
-  "APP.LOGIN.PASSWORD.PLACEHOLDER": "Contraseña"
+  "APP.LOGIN.PASSWORD.PLACEHOLDER": "Contraseña",
+  "APP.COMMENT.FORM.TITLE": "Comentario:",
+  "APP.COMMENT.FORM.BODY": "Escribe un comentario...",
+  "APP.COMMENT.FORM.BUTTON": "Envia comentario"
 }

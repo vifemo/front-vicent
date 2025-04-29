@@ -6,3 +6,15 @@
   margin-top: 10%;
   margin-left: 10%;
 }
+
+@media (max-width: 1500px) {
+  .highcharts-page {
+    margin-top: 15%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .highcharts-page {
+    margin-top: 20%;
+  }
+}

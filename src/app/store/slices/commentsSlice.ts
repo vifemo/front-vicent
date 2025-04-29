@@ -17,7 +17,11 @@ const CommentsSlice = createSlice({
       return { comments: action.payload }
     },
     addComment(state, action) {
-      return { comments: [...state.comments, action.payload] }
+      const maxId = state.comments.length
+        ? Math.max(...state.comments.map((c) => c.id || 0))
+        : 0
+      const commentWithId = { ...action.payload, id: maxId + 1 }
+      return { comments: [...state.comments, commentWithId] }
     },
     editComment(state, action) {
       return {

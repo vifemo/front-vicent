@@ -6,6 +6,8 @@ import { useTranslation } from 'react-i18next'
 import Swal from 'sweetalert2'
 import { getUsers } from '../../services/usersService'
 import { User } from '../../types/types'
+import { UserState } from '../../store/store'
+import { useSelector } from 'react-redux'
 
 // //usuarios de prueba
 // const users = [
@@ -17,22 +19,14 @@ function Login() {
   const { t } = useTranslation()
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
-  const [users, setUsers] = useState<User[]>([])
+  const { users } = useSelector((state: UserState) => state.users_reducer)
   const navigate = useNavigate()
-
-  useEffect(() => {
-    const getAllUsers = async () => {
-      const response = await getUsers()
-      setUsers(response)
-    }
-    getAllUsers()
-  }, [])
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
 
     const user = users.find(
-      (u) => u.userName == userName && u.password === password
+      (u: User) => u.userName == userName && u.password === password
     )
 
     if (user) {
@@ -70,7 +64,7 @@ function Login() {
         <input
           data-cy="password"
           className="login-container__input"
-          type="text"
+          type="password"
           placeholder={t('APP.LOGIN.PASSWORD.PLACEHOLDER')}
           value={password}
           onChange={(e) => {
